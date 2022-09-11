@@ -48,7 +48,7 @@ Build:
         paths:
             - $CI_PROJECT_TITLE-$CI_COMMIT_TIMESTAMP.zip
         expire_in: 1d
-        expose_as: '$CI_PROJECT_TITLE-$CI_COMMIT_TIMESTAMP'
+        expose_as: 'My-iClinic'
         when: always
 
 # Deploy the theme based on environment
