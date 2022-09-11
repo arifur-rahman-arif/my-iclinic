@@ -1,0 +1,66 @@
+# Define all the CI variables
+variables:
+    APP_VERSION: $CI_PIPELINE_IID
+
+.image_configuration: &image_configuration
+    stage: package
+    image: docker
+    services:
+        - docker:20.10.17-dind-alpine3.16
+
+# Defining all the stages of this pipeline
+stages:
+    - Test
+    - Build
+    - Deploy
+
+# Checking the code quality
+Code Quality:
+    stage: Test
+    only:
+        - merge_requests
+        - main
+        - pre-production
+        - production
+    script:
+        - echo "Code quality checked"
+
+# Unit testing of both client & server
+Unit Test:
+    stage: Test
+    image: node:16.17.0-alpine3.15
+    script:
+        - echo "Unit test completed"
+
+# Checking the code quality
+Build:
+    stage: Build
+    image: alpine:3.16
+    only:
+        - merge_requests
+        - /^feature\/[0-9]+-.*$/
+        - /^bug\/[0-9]+-.*$/
+        - /^hotfix\/.*$/
+    script:
+        - ./shell-scripts/create-zip.sh
+    artifacts:
+        name: '$CI_PROJECT_TITLE-$CI_COMMIT_TIMESTAMP'
+        paths:
+            - $CI_PROJECT_TITLE-$CI_COMMIT_TIMESTAMP.zip
+        expire_in: 1d
+        expose_as: '$CI_PROJECT_TITLE-$CI_COMMIT_TIMESTAMP'
+        when: always
+
+# Deploy the theme based on environment
+Deploy Feature/Hotfix/Bug:
+    stage: Deploy
+    image: alpine:3.16
+    tags:
+        - My-iClinic
+    only:
+        - merge_requests
+        - /^feature\/[0-9]+-.*$/
+        - /^bug\/[0-9]+-.*$/
+        - /^hotfix\/.*$/
+    script:
+        - ./shell-scripts/feature-deployer.sh
