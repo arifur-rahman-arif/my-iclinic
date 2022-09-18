@@ -1,66 +1,168 @@
 # Define all the CI variables
 variables:
-    APP_VERSION: $CI_PIPELINE_IID
+    ZIP_NAME: $CI_PROJECT_TITLE-$CI_COMMIT_TIMESTAMP
+    SERVER_URL: $CI_COMMIT_REF_SLUG.$SITE_DOMAIN
 
-.image_configuration: &image_configuration
-    stage: package
-    image: docker
-    services:
-        - docker:20.10.17-dind-alpine3.16
+.ssh_login: &ssh_login
+    before_script:
+        - 'which ssh-agent || ( apk update && apk add openssh-client )'
+        - eval $(ssh-agent -s)
+        - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+        - mkdir -p ~/.ssh
+        - chmod 700 ~/.ssh
+        - ssh-keyscan $SERVER_IP >> ~/.ssh/known_hosts
+        - chmod 644 ~/.ssh/known_hosts
 
 # Defining all the stages of this pipeline
 stages:
     - Test
     - Build
+    - Staging
     - Deploy
 
 # Checking the code quality
-Code Quality:
-    stage: Test
-    only:
-        - merge_requests
-        - main
-        - pre-production
-        - production
-    script:
-        - echo "Code quality checked"
+# Code Quality:
+#     stage: Test
+#     only:
+#         - merge_requests
+#         - main
+#         - pre-production
+#         - production
+#     script:
+#         - echo "Code quality checked"
 
-# Unit testing of both client & server
-Unit Test:
-    stage: Test
-    image: node:16.17.0-alpine3.15
-    script:
-        - echo "Unit test completed"
+# # Unit testing of both client & server
+# Unit Test:
+#     stage: Test
+#     image: node:16.17.0-alpine3.15
+#     script:
+#         - echo "Unit test completed"
 
-# Checking the code quality
+# Building the theme for feature/bug/hotfix
 Build:
     stage: Build
     image: alpine:3.16
-    only:
-        - merge_requests
-        - /^feature\/[0-9]+-.*$/
-        - /^bug\/[0-9]+-.*$/
-        - /^hotfix\/.*$/
+    rules:
+        - if: $CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^feature\/[0-9]+-.*$/
+        - if: $CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^bug\/[0-9]+-.*$/
+        - if: $CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^hotfix\/.*$/
+    when: on_success
     script:
-        - ./shell-scripts/create-zip.sh
+        - echo "Making zip of $CI_PROJECT_TITLE as artifacts"
+        - chmod +x ./shell-scripts/create-zip.sh
+        - | 
+            if [ "$DEBUG_MODE" == "true" ]; then
+               ./shell-scripts/create-zip.sh
+            else
+                ./shell-scripts/create-zip.sh > /dev/null
+            fi
     artifacts:
-        name: '$CI_PROJECT_TITLE-$CI_COMMIT_TIMESTAMP'
-        paths:
-            - $CI_PROJECT_TITLE-$CI_COMMIT_TIMESTAMP.zip
         expire_in: 1d
-        expose_as: 'My-iClinic'
-        when: always
+        expose_as: 'My_iClinic'
+        name: '$CI_COMMIT_REF_NAME-$ZIP_NAME'
+        paths:
+            - $CI_PROJECT_DIR/$ZIP_NAME.zip
+        exclude:
+            - .gitignore
+            - .eslintrc.json
+            - .gitlab-ci.yml
+            - .prettierignore
+            - .prettierrc
+            - .stylelintrc.json
+            - .git
+            - .git/**/*
+            - src
+            - src/**/*
+            - shell-scripts
+            - shell-scripts/**/*
+            - node_modules
+            - node_modules/**/*
+            - README.md
+            - package.json
+            - tsconfig.json
+            - webpack.config.js
+            - yarn.lock
 
 # Deploy the theme based on environment
-Deploy Feature/Hotfix/Bug:
+Prepare Staging Environment:
+    stage: Staging
+    image: alpine:3.16
+    retry: 2
+    tags:
+        - my-iclinic
+    rules:
+        - if: $CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^feature\/[0-9]+-.*$/
+        - if: $CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^bug\/[0-9]+-.*$/
+        - if: $CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^hotfix\/.*$/
+    when: on_success
+    <<: *ssh_login
+    script:
+        - chmod +x ./shell-scripts/clone-wordpress-db.sh
+        - chmod +x ./shell-scripts/clone-wordpress.sh
+        - chmod +x ./shell-scripts/make-staging-env.sh
+        - |
+            if [ "$DEBUG_MODE" == "true" ]; then
+                ./shell-scripts/clone-wordpress-db.sh
+                ssh -tt $SERVER_USER@$SERVER_IP 'bash -s' < $CI_PROJECT_DIR/$CI_COMMIT_REF_SLUG-clone-wordpress-db.sh
+                ./shell-scripts/clone-wordpress.sh
+                ssh -tt $SERVER_USER@$SERVER_IP 'bash -s' < $CI_PROJECT_DIR/$CI_COMMIT_REF_SLUG-clone-wordpress.sh
+                ./shell-scripts/make-staging-env.sh
+                ssh -tt $SERVER_USER@$SERVER_IP 'bash -s' < $CI_PROJECT_DIR/$CI_COMMIT_REF_SLUG-make-staging-env.sh
+            else
+                ./shell-scripts/clone-wordpress-db.sh > /dev/null
+                ssh -tt $SERVER_USER@$SERVER_IP 'bash -s' < $CI_PROJECT_DIR/$CI_COMMIT_REF_SLUG-clone-wordpress-db.sh > /dev/null
+                ./shell-scripts/clone-wordpress.sh > /dev/null
+                ssh -tt $SERVER_USER@$SERVER_IP 'bash -s' < $CI_PROJECT_DIR/$CI_COMMIT_REF_SLUG-clone-wordpress.sh > /dev/null
+                ./shell-scripts/make-staging-env.sh > /dev/null
+                ssh -tt $SERVER_USER@$SERVER_IP 'bash -s' < $CI_PROJECT_DIR/$CI_COMMIT_REF_SLUG-make-staging-env.sh > /dev/null
+            fi
+
+# Deploy the theme pm the staging environment
+Deploy Feature/Bug/Hotfix:
     stage: Deploy
     image: alpine:3.16
+    retry: 1
     tags:
-        - My-iClinic
-    only:
-        - merge_requests
-        - /^feature\/[0-9]+-.*$/
-        - /^bug\/[0-9]+-.*$/
-        - /^hotfix\/.*$/
+        - my-iclinic
+    rules:
+        - if: $CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^feature\/[0-9]+-.*$/
+        - if: $CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^bug\/[0-9]+-.*$/
+        - if: $CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^hotfix\/.*$/
+    environment:
+        name: Staging
+        url: http://$SERVER_URL
+    <<: *ssh_login
     script:
-        - ./shell-scripts/feature-deployer.sh
+        - chmod +x ./shell-scripts/deployer.sh
+        - scp $CI_PROJECT_DIR/$ZIP_NAME.zip $SERVER_USER@$SERVER_IP:/var/www/$SERVER_URL/wp-content/themes/
+        - | 
+            if [ "$DEBUG_MODE" == "true" ]; then
+                ./shell-scripts/deployer.sh
+                ssh -tt $SERVER_USER@$SERVER_IP 'bash -s' < $CI_PROJECT_DIR/deployer.sh
+            else
+                ./shell-scripts/deployer.sh > /dev/null
+                ssh -tt $SERVER_USER@$SERVER_IP 'bash -s' < $CI_PROJECT_DIR/deployer.sh > /dev/null
+            fi
+
+# Deploy the theme pm the staging environment
+Destroy Feature/Bug/Hotfix:
+    stage: Staging
+    image: alpine:3.16
+    retry: 2
+    tags:
+        - my-iclinic
+    rules:
+        - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" && $CI_PIPELINE_SOURCE == "push"
+    when: on_success
+    <<: *ssh_login
+    script:
+        - chmod +x ./shell-scripts/destroy-staging-env.sh
+        - | 
+            if [ "$DEBUG_MODE" == "true" ]; then
+                ./shell-scripts/destroy-staging-env.sh
+                ssh -tt $SERVER_USER@$SERVER_IP 'bash -s' < $CI_PROJECT_DIR/destroy-staging-env.sh
+            else
+                ./shell-scripts/destroy-staging-env.sh > /dev/null
+                ssh -tt $SERVER_USER@$SERVER_IP 'bash -s' < $CI_PROJECT_DIR/destroy-staging-env.sh > /dev/null
+            fi
+        - ssh $SERVER_USER@$SERVER_IP "rm /etc/apache2/sites-available/$SERVER_URL.exp"
