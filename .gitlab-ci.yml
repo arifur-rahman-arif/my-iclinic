@@ -169,4 +169,4 @@ stop_environment:
                 ./shell-scripts/destroy-staging-env.sh > /dev/null
                 ssh -tt $SERVER_USER@$SERVER_IP 'bash -s' < $CI_PROJECT_DIR/destroy-staging-env.sh > /dev/null
             fi
-        - ssh $SERVER_USER@$SERVER_IP "rm /etc/apache2/sites-available/$SERVER_URL.exp"
+        - ssh $SERVER_USER@$SERVER_IP "rm /etc/apache2/sites-available/$SERVER_URL.*"
