@@ -57,7 +57,7 @@ Build:
                 ./shell-scripts/create-zip.sh > /dev/null
             fi
     artifacts:
-        expire_in: 1d
+        expire_in: 7d
         expose_as: 'My_iClinic'
         name: '$CI_COMMIT_REF_NAME-$ZIP_NAME'
         paths:
@@ -128,9 +128,11 @@ Deploy Feature/Bug/Hotfix:
         - if: $CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^feature\/[0-9]+-.*$/
         - if: $CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^bug\/[0-9]+-.*$/
         - if: $CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^hotfix\/.*$/
+        - if: $CI_MERGE_REQUEST_ID
     environment:
-        name: Staging
+        name: Staging-$CI_COMMIT_REF_SLUG
         url: http://$SERVER_URL
+        on_stop: stop_environment
     <<: *ssh_login
     script:
         - chmod +x ./shell-scripts/deployer.sh
@@ -144,16 +146,18 @@ Deploy Feature/Bug/Hotfix:
                 ssh -tt $SERVER_USER@$SERVER_IP 'bash -s' < $CI_PROJECT_DIR/deployer.sh > /dev/null
             fi
 
-# Deploy the theme pm the staging environment
-Destroy Feature/Bug/Hotfix:
-    stage: Staging
-    image: alpine:3.16
-    retry: 2
-    tags:
-        - my-iclinic
+# Stop the staging environment
+stop_environment:
+    stage: Deploy
     rules:
-        - if: $CI_COMMIT_BRANCH == "main" && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^feature\/[0-9]+-.*$/ && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^bug\/[0-9]+-.*$/ && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^hotfix\/.*$/
-    when: on_success
+        - if: $CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^feature\/[0-9]+-.*$/
+        - if: $CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^bug\/[0-9]+-.*$/
+        - if: $CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^hotfix\/.*$/
+        - if: $CI_MERGE_REQUEST_ID
+    environment:
+        name: Staging-$CI_COMMIT_REF_SLUG
+        action: stop
+    when: manual
     <<: *ssh_login
     script:
         - chmod +x ./shell-scripts/destroy-staging-env.sh

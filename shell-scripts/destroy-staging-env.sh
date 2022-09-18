@@ -7,8 +7,8 @@ a2dissite $SERVER_URL.conf
 
 echo '
 #!/usr/bin/expect
-spawn service apache2 reload
-expect -re \"Password: \"
+spawn sudo systemctl reload apache2
+expect -re \"password for deployer: \"
 send \"bottrish@bari\r\"
 send \"bottrish@bari\r\"
 send \"bottrish@bari\r\"
