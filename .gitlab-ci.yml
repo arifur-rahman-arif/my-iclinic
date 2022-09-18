@@ -152,7 +152,7 @@ Destroy Feature/Bug/Hotfix:
     tags:
         - my-iclinic
     rules:
-        - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" && $CI_PIPELINE_SOURCE == "push"
+        - if: $CI_COMMIT_BRANCH == "main" && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^feature\/[0-9]+-.*$/ && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^bug\/[0-9]+-.*$/ && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^hotfix\/.*$/
     when: on_success
     <<: *ssh_login
     script:
