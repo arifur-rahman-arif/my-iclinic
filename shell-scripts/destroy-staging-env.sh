@@ -17,4 +17,4 @@ interact
 ' > /etc/apache2/sites-available/$SERVER_URL.exp
 
 expect /etc/apache2/sites-available/$SERVER_URL.exp && exit
-" > $CI_COMMIT_REF_SLUG-destroy-staging-env.sh
+" > destroy-staging-env.sh
