@@ -1,5 +1,3 @@
-node_modules/**
-.next/*
-public/**
-Dockerfile.*
 yarn.lock
+Contributors.md
+node_modules/**

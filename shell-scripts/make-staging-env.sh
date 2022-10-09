@@ -39,10 +39,10 @@ a2ensite $SERVER_URL.conf
 echo '
 #!/usr/bin/expect
 spawn sudo systemctl reload apache2
-expect -re \"password for deployer: \"
-send \"bottrish@bari\r\"
-send \"bottrish@bari\r\"
-send \"bottrish@bari\r\"
+expect -re \"password for $SERVER_USER: \"
+send \"$SERVER_USER_PASSWORD\r\"
+send \"$SERVER_USER_PASSWORD\r\"
+send \"$SERVER_USER_PASSWORD\r\"
 
 interact
 ' > /etc/apache2/sites-available/$SERVER_URL.exp
