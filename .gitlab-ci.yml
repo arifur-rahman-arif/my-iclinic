@@ -157,6 +157,10 @@ Deploy Feature/Bug/Hotfix:
 # Stop the staging environment
 stop_environment:
     stage: Deploy
+    tags:
+        - my-iclinic
+        - wordpress
+        - wp-theme
     rules:
         - if: $CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^feature\/[0-9]+-.*$/
         - if: $CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^bug\/[0-9]+-.*$/
