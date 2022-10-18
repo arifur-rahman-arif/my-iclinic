@@ -1,0 +1,43 @@
+.thank-you {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5rem;
+    justify-content: flex-start;
+    align-items: center;
+
+    &__title {
+        font-size: 3rem;
+        font-family: $font-bold;
+        line-height: 3rem;
+        color: $color-secondary;
+
+        @include media-breakpoint-up(sm) {
+            font-size: 4rem;
+            line-height: 4rem;
+        }
+    }
+
+    &__paragraph {
+        font-size: 1.6rem;
+        font-family: $font-light;
+        line-height: 2.4rem;
+        color: #404a4d;
+
+        &:nth-of-type(1) {
+            margin-top: 3rem;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    &__image {
+        margin-top: 2.6rem;
+
+        svg {
+            width: 15.27rem;
+            height: 12.818rem;
+        }
+    }
+}

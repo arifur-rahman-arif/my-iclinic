@@ -1,0 +1,10 @@
+@mixin button-animation-border($border-color: $color-primary) {
+    border: 2px solid $border-color;
+    transition: all $transition;
+
+    &:hover,
+    &:focus,
+    &:visited {
+        background-color: transparent;
+    }
+}

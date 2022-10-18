@@ -1,4 +1,9 @@
-/node_modules
-/build
 .idea
 .vscode
+assets/scripts/main.js*
+assets/*.svg
+assets/*.png
+assets/*.ttf
+assets/*.jpg
+/node_modules
+build

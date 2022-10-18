@@ -1,0 +1,535 @@
+.header {
+    $header: &;
+
+    top: 0;
+    left: 0;
+    position: sticky;
+    z-index: 5;
+
+    @include media-breakpoint-up(xl) {
+        top: 2.3rem;
+        width: 100%;
+        position: fixed;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2.9rem;
+        max-width: 125rem;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    &__container {
+        width: 100%;
+        height: 6.4rem;
+        display: flex;
+        align-items: center;
+        padding: 1.5rem 3.5rem;
+        justify-content: space-between;
+        background-color: $color-white;
+        box-shadow: $box-shadow;
+
+        @include media-breakpoint-up(xl) {
+            padding: 0.5rem 0.5rem 0.5rem 1rem;
+            height: 6.8rem;
+            width: auto;
+            border-radius: 12rem;
+        }
+    }
+
+    .logo {
+        @include media-breakpoint-up(xl) {
+            display: none;
+        }
+
+        &--desktop {
+            display: none;
+
+            @include media-breakpoint-up(xl) {
+                display: block;
+            }
+        }
+    }
+
+    .navigation-menus {
+        top: 0;
+        right: 0;
+        width: 80%;
+        height: 100vh;
+        position: fixed;
+        box-shadow: none;
+        background-color: $color-white;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        transform-origin: 0% 0%;
+        transform: translate(100%, 0);
+        transition: transform $transition, box-shadow $transition;
+
+        @include media-breakpoint-up(sm) {
+            width: 70%;
+        }
+
+        @include media-breakpoint-up(md) {
+            width: 45vmax;
+        }
+
+        @include media-breakpoint-up(xl) {
+            position: relative;
+            transform: translate(0, 0);
+            height: auto;
+            width: auto;
+            box-shadow: none;
+            background-color: transparent;
+            margin-left: 7.3rem;
+        }
+
+        &--slide-active {
+            transform: translate(0, 0);
+            box-shadow: $box-shadow;
+
+            @include media-breakpoint-up(xl) {
+                box-shadow: none;
+            }
+        }
+
+        & > ul {
+            width: 100%;
+            padding: 6.4rem 3.5rem 3.5rem 3.5rem;
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-end;
+            overflow-y: auto;
+            gap: 2.5rem;
+
+            @include media-breakpoint-up(xl) {
+                flex-direction: row;
+                margin: 0;
+                padding: 0;
+                overflow-y: unset;
+            }
+        }
+
+        .sub-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: all $transition;
+            padding: 0rem 3rem 0 1rem;
+            display: flex;
+            position: relative;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-end;
+            gap: 2rem;
+            z-index: -1;
+
+            @include media-breakpoint-up(xl) {
+                position: absolute;
+                top: calc(200% + 2rem);
+                left: 0;
+                z-index: 99;
+                background-color: $color-white;
+                box-shadow: $box-shadow;
+                border-radius: $border-radius;
+                padding: 0rem 2.5rem 0 2.5rem;
+                align-items: flex-start;
+                border: 0.2rem solid $color-primary;
+                visibility: hidden;
+            }
+
+            li {
+                a {
+                    font-size: 1.5rem;
+                }
+            }
+
+            &--active {
+                max-height: 100rem;
+                padding-top: 2.5rem;
+
+                @include media-breakpoint-up(xl) {
+                    padding: 2.5rem;
+                    visibility: visible;
+                }
+            }
+        }
+
+        li {
+            cursor: pointer;
+
+            a {
+                font-size: 1.6rem;
+                font-family: $font-bold;
+                white-space: nowrap;
+                color: $color-secondary;
+                transition: all $transition;
+            }
+
+            &:not(.menu-item-has-children):hover a {
+                text-decoration: underline;
+            }
+
+            &.menu-item-has-children {
+                position: relative;
+                text-align: right;
+
+                @include media-breakpoint-up(xl) {
+                    text-align: center;
+                    margin-right: 1.2rem;
+                }
+
+                & > a {
+                    pointer-events: none;
+                }
+
+                &:after {
+                    content: url('/assets/images/icons/icon-arrow-down.svg');
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 1.2rem;
+                    height: 0.6rem;
+                    display: block;
+                    transform: translate(calc(100% + 0.6rem), calc(100% + 0.1rem));
+                    transition: transform $transition;
+                }
+
+                &--active {
+                    &:after {
+                        transform: translate(calc(100% + 0.6rem), calc(100% + 0.3rem)) rotate(180deg);
+                    }
+                }
+            }
+        }
+
+        &__consultation {
+            margin-bottom: 3.5rem;
+
+            @include media-breakpoint-up(xl) {
+                display: none;
+            }
+
+            .consultation-button {
+                width: 18.6rem;
+                height: 4.8rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 2.2rem 3.2rem;
+                border-radius: 12rem;
+                background-color: $color-primary;
+                color: $color-secondary;
+                font-size: 1.6rem;
+                font-family: $font-bold;
+                white-space: nowrap;
+                cursor: pointer;
+
+                @include button-animation-border;
+            }
+        }
+    }
+
+    .round-box {
+        display: none;
+
+        @include media-breakpoint-up(xl) {
+            width: 5.8rem;
+            height: 5.8rem;
+            border-radius: 50%;
+            background-color: $color-primary;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.06rem;
+            cursor: pointer;
+            margin-left: 2rem;
+
+            & > span {
+                font-size: 2.8rem;
+                font-family: $font-lato-bold;
+                position: relative;
+            }
+
+            &__capital-case {
+                text-transform: capitalize;
+                top: -0.25rem;
+            }
+
+            &__lower-case {
+                text-transform: lowercase;
+                top: 0.25rem;
+            }
+
+            @include button-animation-border;
+        }
+    }
+
+    .hamburger-menu {
+        $this: '.hamburger-menu';
+
+        width: 2.4rem;
+        height: 2.4rem;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.4rem;
+        position: relative;
+        z-index: 99;
+        transform: scale(1.02);
+
+        @include media-breakpoint-up(md) {
+            transform: scale(1.05);
+        }
+
+        &__bar {
+            width: 2.4rem;
+            height: 0.2rem;
+            display: inline-block;
+            background-color: #001a20;
+            transition: all $transition;
+            pointer-events: none;
+            opacity: 1;
+            border-radius: 0.2rem;
+
+            &:first-child {
+                transform-origin: 0% 0%;
+            }
+
+            &:nth-child(3) {
+                transform-origin: 0% 100%;
+            }
+
+            &--small-bar {
+                width: 2rem;
+                align-self: flex-end;
+            }
+        }
+
+        &--active {
+            #{ $this }__bar {
+                &--small-bar {
+                    opacity: 0;
+                }
+
+                &:first-child {
+                    transform: rotate(45deg) translate(40%, -50%);
+                }
+
+                &:nth-child(3) {
+                    transform: rotate(-45deg) translate(-10%, 600%);
+                }
+            }
+        }
+
+        @include media-breakpoint-up(xl) {
+            display: none;
+        }
+    }
+
+    .consultation {
+        display: none;
+
+        @include media-breakpoint-up(xl) {
+            display: block;
+
+            &__button {
+                width: 21.6rem;
+                height: 6.8rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 2.2rem 3.2rem;
+                border-radius: 12rem;
+                background-color: $color-primary;
+                color: $color-secondary;
+                font-size: 1.6rem;
+                font-family: $font-bold;
+                white-space: nowrap;
+                cursor: pointer;
+
+                @include button-animation-border;
+            }
+        }
+    }
+
+    // Activate the mobile menu
+
+    &--activate-mobile {
+        top: 0;
+        left: 0;
+        position: sticky;
+
+        #{ $header }__container {
+            width: 100%;
+            padding: 1.5rem 3.5rem;
+            height: 6.4rem;
+            border-radius: unset;
+            gap: unset;
+
+            .logo {
+                display: block;
+
+                &--desktop {
+                    display: none;
+                }
+            }
+
+            .round-box {
+                display: none;
+            }
+        }
+
+        & > .consultation {
+            display: none;
+        }
+
+        .hamburger-menu {
+            display: flex;
+        }
+
+        .navigation-menus {
+            top: 0;
+            right: 0;
+            width: 80%;
+            height: 100vh;
+            position: fixed;
+            box-shadow: none;
+            background-color: $color-white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            transform-origin: 0% 0%;
+            transform: translate(100%, 0);
+            transition: transform $transition, box-shadow $transition;
+
+            @include media-breakpoint-up(sm) {
+                width: 70%;
+            }
+
+            @include media-breakpoint-up(md) {
+                width: auto;
+                min-width: 350px;
+            }
+
+            &--slide-active {
+                transform: translate(0, 0);
+                box-shadow: $box-shadow;
+            }
+
+            & > ul {
+                width: 100%;
+                padding: 6.4rem 3.5rem 3.5rem 3.5rem;
+                margin-top: 2rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-end;
+                overflow-y: auto;
+                gap: 2.5rem;
+            }
+
+            .sub-menu {
+                max-height: 0;
+                overflow: hidden;
+                transition: all $transition;
+                padding: 0rem 3rem 0 1rem;
+                display: flex;
+                position: relative;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-end;
+                gap: 2rem;
+                z-index: -1;
+                border: none;
+                border-radius: unset;
+                box-shadow: unset;
+
+                li {
+                    a {
+                        font-size: 1.5rem;
+                    }
+                }
+
+                &--active {
+                    max-height: 100rem;
+                    padding-top: 2.5rem;
+                }
+            }
+
+            li {
+                cursor: pointer;
+
+                a {
+                    font-size: 1.6rem;
+                    font-family: $font-bold;
+                    white-space: nowrap;
+                    color: $color-secondary;
+                    transition: all $transition;
+                }
+
+                &:not(.menu-item-has-children):hover a {
+                    text-decoration: underline;
+                }
+
+                &.menu-item-has-children {
+                    position: relative;
+                    text-align: right;
+
+                    & > a {
+                        pointer-events: none;
+                    }
+
+                    &:after {
+                        content: url('/assets/images/icons/icon-arrow-down.svg');
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        width: 1.2rem;
+                        height: 0.6rem;
+                        display: block;
+                        transform: translate(calc(100% + 0.6rem), calc(100% + 0.1rem));
+                        transition: transform $transition;
+                    }
+
+                    &--active {
+                        &:after {
+                            transform: translate(calc(100% + 0.6rem), calc(100% + 0.3rem)) rotate(180deg);
+                        }
+                    }
+                }
+            }
+
+            &__consultation {
+                margin-bottom: 3.5rem;
+
+                @include media-breakpoint-up(xl) {
+                    display: none;
+                }
+
+                .consultation-button {
+                    width: 18.6rem;
+                    height: 4.8rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 2.2rem 3.2rem;
+                    border-radius: 12rem;
+                    background-color: $color-primary;
+                    color: $color-secondary;
+                    font-size: 1.6rem;
+                    font-family: $font-bold;
+                    white-space: nowrap;
+                    cursor: pointer;
+
+                    @include button-animation-border;
+                }
+            }
+        }
+    }
+}

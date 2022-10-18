@@ -1,0 +1,17 @@
+{
+    "name": "digitaltechnologia/my-iclinic",
+    "description": "Our specialist consultants offer a selection of laser eye surgery and lens surgery treatments that allow you to discover crystal clear vision.",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "DigitalTechnologia\\MyIclinic\\": "includes/classes"
+        }
+    },
+    "authors": [
+        {
+            "name": "AR. Arif",
+            "email": "dev.ar.arif@gmail.com"
+        }
+    ],
+    "require": {}
+}

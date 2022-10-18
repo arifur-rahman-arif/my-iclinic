@@ -1,0 +1,167 @@
+.stepper {
+    flex-grow: 1;
+    overflow: hidden;
+
+    @include media-breakpoint-down(sm) {
+        margin-top: 3rem;
+    }
+
+    @include media-breakpoint-up(sm) {
+        box-shadow: $box-shadow;
+        min-width: 49.2rem;
+        padding: 2rem;
+        border-radius: $border-radius;
+    }
+
+    &__progress {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    }
+
+    &__progress-btn {
+        transition-property: all;
+        transition-duration: 0.15s;
+        transition-timing-function: linear;
+        transition-delay: 0s;
+        position: relative;
+        border: none;
+        background-color: transparent;
+        outline: none !important;
+        cursor: pointer;
+        font-size: 1.2rem;
+        font-family: $font-bold;
+        line-height: 1.2rem;
+        color: #404a4d;
+        line-height: 8rem;
+    }
+
+    &__checkbox {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: block;
+        transform: translate(-50%, -74%);
+        z-index: 5;
+        pointer-events: none;
+    }
+
+    &__progress-btn:before {
+        position: absolute;
+        top: 0.5rem;
+        left: 50%;
+        display: block;
+        width: 2.5rem;
+        height: 2.5rem;
+        content: '';
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        transition: all 0.15s linear 0s, -webkit-transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s;
+        transition: all 0.15s linear 0s, transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s;
+        transition: all 0.15s linear 0s, transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s,
+            -webkit-transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s;
+        border: 2px solid #e5e8e9;
+        border-radius: 50%;
+        background-color: #cad3d6;
+        box-sizing: border-box;
+        z-index: 3;
+    }
+    &__progress-btn:after {
+        position: absolute;
+        top: 1.6rem;
+        left: calc(-50% - 13px / 2);
+        transition-property: all;
+        transition-duration: 0.15s;
+        transition-timing-function: linear;
+        transition-delay: 0s;
+        display: block;
+        width: 100%;
+        height: 0.3rem;
+        content: '';
+        background-color: #e5e8e9;
+        z-index: 1;
+    }
+    &__progress-btn:first-child:after {
+        display: none;
+    }
+    &__progress-btn.js-active {
+        color: #31cb68;
+    }
+    &__progress-btn.js-active:before {
+        -webkit-transform: translateX(-50%) scale(1.2);
+        transform: translateX(-50%) scale(1.2);
+        background-color: currentColor;
+    }
+
+    &__progress-btn.js-active:after {
+        background-color: #31cb68;
+    }
+
+    &__form {
+        position: relative;
+    }
+
+    &__panel {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 0;
+        opacity: 0;
+        visibility: hidden;
+    }
+    &__panel.js-active {
+        height: auto;
+        opacity: 1;
+        visibility: visible;
+    }
+    &__panel[data-animation='scaleOut'] {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+    &__panel[data-animation='scaleOut'].js-active {
+        transition-property: all;
+        transition-duration: 0.2s;
+        transition-timing-function: linear;
+        transition-delay: 0s;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    &__panel[data-animation='slideHorz'] {
+        left: 50px;
+    }
+    &__panel[data-animation='slideHorz'].js-active {
+        transition-property: all;
+        transition-duration: 0.25s;
+        transition-timing-function: cubic-bezier(0.2, 1.13, 0.38, 1.43);
+        transition-delay: 0s;
+        left: 0;
+    }
+    &__panel[data-animation='slideVert'] {
+        top: 30px;
+    }
+    &__panel[data-animation='slideVert'].js-active {
+        transition-property: all;
+        transition-duration: 0.2s;
+        transition-timing-function: linear;
+        transition-delay: 0s;
+        top: 0;
+    }
+    &__panel[data-animation='fadeIn'].js-active {
+        transition-property: all;
+        transition-duration: 0.3s;
+        transition-timing-function: linear;
+        transition-delay: 0s;
+    }
+    &__panel[data-animation='scaleIn'] {
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+    }
+    &__panel[data-animation='scaleIn'].js-active {
+        transition-property: all;
+        transition-duration: 0.2s;
+        transition-timing-function: linear;
+        transition-delay: 0s;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}

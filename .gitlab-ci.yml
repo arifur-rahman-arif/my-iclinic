@@ -53,11 +53,14 @@ Build:
     when: on_success
     script:
         - echo "Making zip of $CI_PROJECT_TITLE as artifacts"
+        - chmod +x ./shell-scripts/node-installer.sh
         - chmod +x ./shell-scripts/create-zip.sh
-        - | 
+        - |
             if [ "$DEBUG_MODE" == "true" ]; then
+               ./shell-scripts/node-installer.sh
                ./shell-scripts/create-zip.sh
             else
+               ./shell-scripts/node-installer.sh > /dev/null
                 ./shell-scripts/create-zip.sh > /dev/null
             fi
     artifacts:
@@ -145,7 +148,7 @@ Deploy Feature/Bug/Hotfix:
     script:
         - chmod +x ./shell-scripts/deployer.sh
         - scp $CI_PROJECT_DIR/$ZIP_NAME.zip $SERVER_USER@$SERVER_IP:/var/www/$SERVER_URL/wp-content/themes/
-        - | 
+        - |
             if [ "$DEBUG_MODE" == "true" ]; then
                 ./shell-scripts/deployer.sh
                 ssh -tt $SERVER_USER@$SERVER_IP 'bash -s' < $CI_PROJECT_DIR/deployer.sh
@@ -173,7 +176,7 @@ stop_environment:
     <<: *ssh_login
     script:
         - chmod +x ./shell-scripts/destroy-staging-env.sh
-        - | 
+        - |
             if [ "$DEBUG_MODE" == "true" ]; then
                 ./shell-scripts/destroy-staging-env.sh
                 ssh -tt $SERVER_USER@$SERVER_IP 'bash -s' < $CI_PROJECT_DIR/destroy-staging-env.sh
