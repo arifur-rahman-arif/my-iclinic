@@ -6,6 +6,9 @@ class Stepper {
     constructor() {
         this.lottieController = document.getElementById('animate-check-lottie');
         this.formNextButton = document.querySelectorAll('.form__next-button');
+
+        if (!document.querySelectorAll('.stepper__form').length) return false;
+
         //DOM elements
         const DOMstrings = {
             stepsBtnClass: 'stepper__progress-btn',
@@ -85,7 +88,7 @@ class Stepper {
 
         //set form height equal to current panel height
         const formHeight = (activePanel) => {
-            const activePanelHeight = activePanel.offsetHeight;
+            const activePanelHeight = activePanel?.offsetHeight;
 
             DOMstrings.stepsForm.style.height = `${activePanelHeight}px`;
         };
@@ -97,7 +100,7 @@ class Stepper {
         };
 
         //STEPS BAR CLICK FUNCTION
-        DOMstrings.stepsBar.addEventListener('click', (e) => {
+        DOMstrings?.stepsBar?.addEventListener('click', (e) => {
             //check if click target is a step button
             const eventTarget = e.target;
 
@@ -116,7 +119,7 @@ class Stepper {
         });
 
         //PREV/NEXT BTNS CLICK
-        DOMstrings.stepsForm.addEventListener('click', (e) => {
+        DOMstrings?.stepsForm?.addEventListener('click', (e) => {
             const eventTarget = e.target;
 
             //check if we clicked on `PREV` or NEXT` buttons
@@ -153,14 +156,14 @@ class Stepper {
 
         //changing animation via animation select !!!YOU DON'T NEED THIS CODE (if you want to change animation type, just change form panels data-attr)
 
-        const setAnimationType = (newType) => {
-            DOMstrings.stepFormPanels.forEach((elem) => {
-                elem.dataset.animation = newType;
-            });
-        };
+        // const setAnimationType = (newType) => {
+        //     DOMstrings.stepFormPanels.forEach((elem) => {
+        //         elem.dataset.animation = newType;
+        //     });
+        // };
 
         //selector onchange - changing animation
-        const animationSelect = document.querySelector('.pick-animation__select');
+        // const animationSelect = document.querySelector('.pick-animation__select');
 
         // animationSelect.addEventListener('change', () => {
         //     const newAnimationType = animationSelect.value;
@@ -172,9 +175,9 @@ class Stepper {
     }
 
     events() {
-        this.lottieController.addEventListener('click', this.animateLottie);
+        this.lottieController?.addEventListener('click', this.animateLottie);
 
-        this.formNextButton.forEach((element) => {
+        this.formNextButton?.forEach((element) => {
             element.addEventListener('click', (e) => {
                 if (e.target == element) {
                     window.scrollTo(0, getElementTopPosition(document.getElementById('form-scroll-start-point')) - 200);

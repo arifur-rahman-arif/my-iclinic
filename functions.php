@@ -4,10 +4,9 @@ if (!defined('ABSPATH')) {
     return;
 }
 
-if (!defined('MY_ICLINIC_VERSION')) {
-    define('MY_ICLINIC_VERSION', '1.0.0');
-    // define('MY_ICLINIC_VERSION', time());
-}
+require_once trailingslashit(get_theme_file_path()).'vendor/autoload.php';
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->safeLoad();
 
 if (!defined('MY_ICLINIC_PATH')) {
     define('MY_ICLINIC_PATH', trailingslashit(get_theme_file_path()));
@@ -18,11 +17,20 @@ if (!defined('MY_ICLINIC_PATH_URL')) {
 }
 
 if (!defined('MY_ICLINIC_MODE')) {
-    // define('MY_ICLINIC_MODE', 'development');
-    define('MY_ICLINIC_MODE', 'production');
+    define('MY_ICLINIC_MODE', isset($_ENV['MY_ICLINIC_MODE']) ? $_ENV['MY_ICLINIC_MODE'] : 'production');
 }
 
-require_once MY_ICLINIC_PATH.'vendor/autoload.php';
+if (!defined('MY_ICLINIC_VERSION')) {
+    define(
+        'MY_ICLINIC_VERSION',
+        MY_ICLINIC_MODE === 'development'
+        ? time()
+        : (isset($_ENV['MY_ICLINIC_VERSION'])
+            ? $_ENV['MY_ICLINIC_VERSION']
+            : '1.0.0')
+    );
+}
+
 require_once MY_ICLINIC_PATH.'includes/functions/nav-functions.php';
 require_once MY_ICLINIC_PATH.'includes/functions/utility-functions.php';
 

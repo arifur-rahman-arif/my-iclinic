@@ -4,7 +4,6 @@ yarn install
 
 yarn build
 
-
 for dir in react-components/*
     do
         FILENAME="package.json"

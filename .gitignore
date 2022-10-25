@@ -1,5 +1,4 @@
-.idea
-.vscode
+.env
 assets/scripts/main.js*
 assets/*.svg
 assets/*.png

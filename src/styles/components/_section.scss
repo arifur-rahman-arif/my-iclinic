@@ -1,0 +1,351 @@
+.section {
+    margin-top: 10rem;
+    width: 100%;
+    position: relative;
+
+    @include media-breakpoint-up(sm) {
+        margin-top: 12rem;
+    }
+
+    &--cataract-increased-top-margin {
+        @include media-breakpoint-up(sm) {
+            margin-top: 20rem;
+        }
+    }
+
+    &__container {
+        width: 100%;
+        max-width: $container-width;
+        margin: 0 auto;
+        padding: 0 2rem;
+
+        @include media-breakpoint-up(xl) {
+            padding: 0;
+        }
+
+        &--desktop-padding {
+            @include media-breakpoint-up(sm) {
+                padding: 8rem 5.9rem;
+            }
+        }
+
+        &--bg-skyblue {
+            @include media-breakpoint-up(sm) {
+                background-color: #edfafd;
+                border-radius: $border-radius;
+            }
+        }
+
+        &--reduced-padding {
+            @include media-breakpoint-down(sm) {
+                padding: 0 1.5rem;
+            }
+        }
+
+        &--overflow-hidden {
+            @include media-breakpoint-down(sm) {
+                overflow: hidden;
+            }
+        }
+    }
+
+    &__title {
+        text-align: center;
+        font-size: 2.8rem;
+        line-height: 2.8rem;
+        font-family: $font-lato-bold;
+
+        @include media-breakpoint-up(sm) {
+            font-size: 4.8rem;
+            line-height: 4.8rem;
+        }
+
+        strong {
+            font-size: 2.8rem;
+            font-family: $font-lato-bold;
+
+            @include media-breakpoint-up(sm) {
+                font-size: 4.8rem;
+            }
+        }
+
+        &--light {
+            font-family: $font-lato-light;
+        }
+
+        @include media-breakpoint-down(sm) {
+            &--aligned-left {
+                text-align: left;
+            }
+
+            &--increased-padding-left {
+                padding-left: 2rem;
+            }
+
+            &--yellow-pseudo-border-left {
+                position: relative;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    width: 0.5rem;
+                    height: 4.7rem;
+                    background-color: #ffb800;
+                    border-radius: 10rem;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+
+        &--yellow-pseudo-border-left-desktop {
+            position: relative;
+            margin-left: 2rem;
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: -2rem;
+                width: 0.5rem;
+                height: calc(100% - 0.5rem);
+                background-color: #ffb800;
+                border-radius: 10rem;
+                transform: translateY(-50%);
+
+                @include media-breakpoint-up(sm) {
+                    height: calc(100% - 1rem);
+                }
+            }
+        }
+
+        &--aligned-left-desktop {
+            text-align: left;
+        }
+
+        &--increased-mobile-top-margin {
+            @include media-breakpoint-down(sm) {
+                margin-top: 7.5rem;
+            }
+        }
+    }
+
+    &__description {
+        margin-top: 2rem;
+
+        @include media-breakpoint-up(sm) {
+            margin-top: 3rem;
+        }
+
+        &,
+        p {
+            text-align: center;
+            font-size: 1.6rem;
+            font-family: $font-light;
+            line-height: 2.4rem;
+            text-align: left;
+            max-width: 68.2rem;
+            margin-left: auto;
+            margin-right: auto;
+
+            @include media-breakpoint-up(sm) {
+                text-align: center;
+            }
+
+            a {
+                color: #0085ff;
+                font-size: 1.6rem;
+                font-family: $font-bold;
+            }
+
+            strong {
+                font-size: 1.7rem;
+                font-family: $font-bold;
+            }
+        }
+
+        p:not(:last-child) {
+            margin-bottom: 1.5rem;
+        }
+
+        .text-align-left {
+            text-align: left;
+        }
+    }
+
+    &__card-container {
+        margin-top: 3rem;
+
+        @include media-breakpoint-up(sm) {
+            width: 100%;
+            margin-top: 6rem;
+            overflow: hidden;
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fill, minmax(35.5rem, 1fr));
+        }
+    }
+
+    .mission {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        width: 100%;
+        gap: 3rem;
+
+        @include media-breakpoint-up(sm) {
+            margin-top: 8.4rem;
+        }
+
+        @include media-breakpoint-up(xl) {
+            gap: 7.9rem;
+        }
+
+        &__banner {
+            max-width: 77.5rem;
+            // overflow: hidden;
+            border-radius: $border-radius;
+            position: relative;
+
+            &:before {
+                content: '';
+                width: 46.2rem;
+                height: 56.3rem;
+                position: absolute;
+                right: 0;
+                top: 0;
+                z-index: -1;
+                background-color: #ccf5ff;
+                border-radius: $border-radius;
+
+                @include media-breakpoint-up(xl) {
+                    transform: translate(1rem, 6rem) rotateZ(-17deg);
+                }
+            }
+        }
+
+        &__image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-wrapper {
+            position: absolute;
+            bottom: 2rem;
+            right: 2.4rem;
+            z-index: 2;
+            max-width: 50.6rem;
+            width: calc(100% - 2.4rem);
+            min-height: 29rem;
+            padding-left: 2.4rem;
+        }
+    }
+
+    &--request-calback {
+        position: relative;
+
+        &:before {
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: -22rem;
+            background-image: url('/assets/images/feature/call-back-mobile-bg.png');
+            background-repeat: no-repeat;
+            background-size: contain;
+            max-height: 34.1rem;
+
+            @include media-breakpoint-up(lg) {
+                background-image: url('/assets/images/feature/call-back-mobile-bg-desktop.svg');
+                max-height: 74.5rem;
+                top: -4rem;
+            }
+
+            @include media-breakpoint-up(xl) {
+                top: -3rem;
+            }
+        }
+    }
+
+    &__simple-process-bg {
+        display: none;
+
+        @include media-breakpoint-up(md) {
+            display: block;
+        }
+
+        &:before {
+            content: '';
+            position: absolute;
+            background-repeat: no-repeat;
+            background-size: contain;
+            z-index: -1;
+        }
+
+        &--bg-1 {
+            &:before {
+                width: 82.8rem;
+                height: 61.3rem;
+                top: 10%;
+                right: 0;
+                background-image: url('/assets/images/feature/simple-process-consultation-right-bg.svg');
+                background-position: right;
+
+                @include media-breakpoint-up(xl) {
+                    top: 6%;
+                }
+
+                @include media-breakpoint-up(2xl) {
+                    width: 43vmax;
+                    height: 43vmax;
+                    top: 2%;
+                }
+            }
+        }
+
+        &--bg-2 {
+            &:before {
+                width: 59.9rem;
+                height: 49.6rem;
+                left: 0;
+                top: 50%;
+                background-image: url('/assets/images/feature/simple-process-surgery-left-bg.svg');
+                background-position: left;
+
+                @include media-breakpoint-up(lg) {
+                    top: 105rem;
+                }
+
+                @include media-breakpoint-up(2xl) {
+                    width: 43vmax;
+                    height: 43vmax;
+                    top: 35%;
+                }
+            }
+        }
+
+        &--bg-3 {
+            &:before {
+                width: 82.8rem;
+                height: 61.3rem;
+                bottom: -15rem;
+                right: 0;
+                background-image: url('/assets/images/feature/simple-process-after-care-right-bg.svg');
+                background-position: right;
+
+                @include media-breakpoint-up(lg) {
+                    bottom: -9rem;
+                }
+
+                @include media-breakpoint-up(2xl) {
+                    width: 45vmax;
+                    height: 45vmax;
+                    bottom: -15rem;
+                }
+            }
+        }
+    }
+}

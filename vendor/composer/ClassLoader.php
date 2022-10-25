@@ -50,29 +50,29 @@ class ClassLoader
      * @var array[]
      * @psalm-var array<string, array<string, int>>
      */
-    private $prefixLengthsPsr4 = array();
+    private $prefixLengthsPsr4 = [];
     /**
      * @var array[]
      * @psalm-var array<string, array<int, string>>
      */
-    private $prefixDirsPsr4 = array();
+    private $prefixDirsPsr4 = [];
     /**
      * @var array[]
      * @psalm-var array<string, string>
      */
-    private $fallbackDirsPsr4 = array();
+    private $fallbackDirsPsr4 = [];
 
     // PSR-0
     /**
      * @var array[]
      * @psalm-var array<string, array<string, string[]>>
      */
-    private $prefixesPsr0 = array();
+    private $prefixesPsr0 = [];
     /**
      * @var array[]
      * @psalm-var array<string, string>
      */
-    private $fallbackDirsPsr0 = array();
+    private $fallbackDirsPsr0 = [];
 
     /** @var bool */
     private $useIncludePath = false;
@@ -81,7 +81,7 @@ class ClassLoader
      * @var string[]
      * @psalm-var array<string, string>
      */
-    private $classMap = array();
+    private $classMap = [];
 
     /** @var bool */
     private $classMapAuthoritative = false;
@@ -90,7 +90,7 @@ class ClassLoader
      * @var bool[]
      * @psalm-var array<string, bool>
      */
-    private $missingClasses = array();
+    private $missingClasses = [];
 
     /** @var ?string */
     private $apcuPrefix;
@@ -98,7 +98,7 @@ class ClassLoader
     /**
      * @var self[]
      */
-    private static $registeredLoaders = array();
+    private static $registeredLoaders = [];
 
     /**
      * @param ?string $vendorDir
@@ -117,7 +117,7 @@ class ClassLoader
             return call_user_func_array('array_merge', array_values($this->prefixesPsr0));
         }
 
-        return array();
+        return [];
     }
 
     /**
@@ -185,15 +185,9 @@ class ClassLoader
     {
         if (!$prefix) {
             if ($prepend) {
-                $this->fallbackDirsPsr0 = array_merge(
-                    (array) $paths,
-                    $this->fallbackDirsPsr0
-                );
+                $this->fallbackDirsPsr0 = array_merge((array) $paths, $this->fallbackDirsPsr0);
             } else {
-                $this->fallbackDirsPsr0 = array_merge(
-                    $this->fallbackDirsPsr0,
-                    (array) $paths
-                );
+                $this->fallbackDirsPsr0 = array_merge($this->fallbackDirsPsr0, (array) $paths);
             }
 
             return;
@@ -206,15 +200,9 @@ class ClassLoader
             return;
         }
         if ($prepend) {
-            $this->prefixesPsr0[$first][$prefix] = array_merge(
-                (array) $paths,
-                $this->prefixesPsr0[$first][$prefix]
-            );
+            $this->prefixesPsr0[$first][$prefix] = array_merge((array) $paths, $this->prefixesPsr0[$first][$prefix]);
         } else {
-            $this->prefixesPsr0[$first][$prefix] = array_merge(
-                $this->prefixesPsr0[$first][$prefix],
-                (array) $paths
-            );
+            $this->prefixesPsr0[$first][$prefix] = array_merge($this->prefixesPsr0[$first][$prefix], (array) $paths);
         }
     }
 
@@ -235,36 +223,24 @@ class ClassLoader
         if (!$prefix) {
             // Register directories for the root namespace.
             if ($prepend) {
-                $this->fallbackDirsPsr4 = array_merge(
-                    (array) $paths,
-                    $this->fallbackDirsPsr4
-                );
+                $this->fallbackDirsPsr4 = array_merge((array) $paths, $this->fallbackDirsPsr4);
             } else {
-                $this->fallbackDirsPsr4 = array_merge(
-                    $this->fallbackDirsPsr4,
-                    (array) $paths
-                );
+                $this->fallbackDirsPsr4 = array_merge($this->fallbackDirsPsr4, (array) $paths);
             }
         } elseif (!isset($this->prefixDirsPsr4[$prefix])) {
             // Register directories for a new namespace.
             $length = strlen($prefix);
             if ('\\' !== $prefix[$length - 1]) {
-                throw new \InvalidArgumentException("A non-empty PSR-4 prefix must end with a namespace separator.");
+                throw new \InvalidArgumentException('A non-empty PSR-4 prefix must end with a namespace separator.');
             }
             $this->prefixLengthsPsr4[$prefix[0]][$prefix] = $length;
             $this->prefixDirsPsr4[$prefix] = (array) $paths;
         } elseif ($prepend) {
             // Prepend directories for an already registered namespace.
-            $this->prefixDirsPsr4[$prefix] = array_merge(
-                (array) $paths,
-                $this->prefixDirsPsr4[$prefix]
-            );
+            $this->prefixDirsPsr4[$prefix] = array_merge((array) $paths, $this->prefixDirsPsr4[$prefix]);
         } else {
             // Append directories for an already registered namespace.
-            $this->prefixDirsPsr4[$prefix] = array_merge(
-                $this->prefixDirsPsr4[$prefix],
-                (array) $paths
-            );
+            $this->prefixDirsPsr4[$prefix] = array_merge($this->prefixDirsPsr4[$prefix], (array) $paths);
         }
     }
 
@@ -304,7 +280,7 @@ class ClassLoader
         } else {
             $length = strlen($prefix);
             if ('\\' !== $prefix[$length - 1]) {
-                throw new \InvalidArgumentException("A non-empty PSR-4 prefix must end with a namespace separator.");
+                throw new \InvalidArgumentException('A non-empty PSR-4 prefix must end with a namespace separator.');
             }
             $this->prefixLengthsPsr4[$prefix[0]][$prefix] = $length;
             $this->prefixDirsPsr4[$prefix] = (array) $paths;
@@ -366,7 +342,10 @@ class ClassLoader
      */
     public function setApcuPrefix($apcuPrefix)
     {
-        $this->apcuPrefix = function_exists('apcu_fetch') && filter_var(ini_get('apc.enabled'), FILTER_VALIDATE_BOOLEAN) ? $apcuPrefix : null;
+        $this->apcuPrefix =
+            function_exists('apcu_fetch') && filter_var(ini_get('apc.enabled'), FILTER_VALIDATE_BOOLEAN)
+                ? $apcuPrefix
+                : null;
     }
 
     /**
@@ -388,14 +367,14 @@ class ClassLoader
      */
     public function register($prepend = false)
     {
-        spl_autoload_register(array($this, 'loadClass'), true, $prepend);
+        spl_autoload_register([$this, 'loadClass'], true, $prepend);
 
         if (null === $this->vendorDir) {
             return;
         }
 
         if ($prepend) {
-            self::$registeredLoaders = array($this->vendorDir => $this) + self::$registeredLoaders;
+            self::$registeredLoaders = [$this->vendorDir => $this] + self::$registeredLoaders;
         } else {
             unset(self::$registeredLoaders[$this->vendorDir]);
             self::$registeredLoaders[$this->vendorDir] = $this;
@@ -409,7 +388,7 @@ class ClassLoader
      */
     public function unregister()
     {
-        spl_autoload_unregister(array($this, 'loadClass'));
+        spl_autoload_unregister([$this, 'loadClass']);
 
         if (null !== $this->vendorDir) {
             unset(self::$registeredLoaders[$this->vendorDir]);
@@ -450,7 +429,7 @@ class ClassLoader
             return false;
         }
         if (null !== $this->apcuPrefix) {
-            $file = apcu_fetch($this->apcuPrefix.$class, $hit);
+            $file = apcu_fetch($this->apcuPrefix . $class, $hit);
             if ($hit) {
                 return $file;
             }
@@ -464,7 +443,7 @@ class ClassLoader
         }
 
         if (null !== $this->apcuPrefix) {
-            apcu_add($this->apcuPrefix.$class, $file);
+            apcu_add($this->apcuPrefix . $class, $file);
         }
 
         if (false === $file) {
@@ -498,7 +477,7 @@ class ClassLoader
         $first = $class[0];
         if (isset($this->prefixLengthsPsr4[$first])) {
             $subPath = $class;
-            while (false !== $lastPos = strrpos($subPath, '\\')) {
+            while (false !== ($lastPos = strrpos($subPath, '\\'))) {
                 $subPath = substr($subPath, 0, $lastPos);
                 $search = $subPath . '\\';
                 if (isset($this->prefixDirsPsr4[$search])) {
@@ -520,10 +499,11 @@ class ClassLoader
         }
 
         // PSR-0 lookup
-        if (false !== $pos = strrpos($class, '\\')) {
+        if (false !== ($pos = strrpos($class, '\\'))) {
             // namespaced class name
-            $logicalPathPsr0 = substr($logicalPathPsr4, 0, $pos + 1)
-                . strtr(substr($logicalPathPsr4, $pos + 1), '_', DIRECTORY_SEPARATOR);
+            $logicalPathPsr0 =
+                substr($logicalPathPsr4, 0, $pos + 1) .
+                strtr(substr($logicalPathPsr4, $pos + 1), '_', DIRECTORY_SEPARATOR);
         } else {
             // PEAR-like class name
             $logicalPathPsr0 = strtr($class, '_', DIRECTORY_SEPARATOR) . $ext;
@@ -549,7 +529,7 @@ class ClassLoader
         }
 
         // PSR-0 include paths.
-        if ($this->useIncludePath && $file = stream_resolve_include_path($logicalPathPsr0)) {
+        if ($this->useIncludePath && ($file = stream_resolve_include_path($logicalPathPsr0))) {
             return $file;
         }
 

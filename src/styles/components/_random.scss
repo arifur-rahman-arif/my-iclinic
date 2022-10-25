@@ -1,0 +1,74 @@
+.better-eyes-for-better-life {
+    &:before {
+        background-image: url('/assets/images/feature/skewed-rectangle-skyblue.svg');
+
+        @include media-breakpoint-up(md) {
+            background-image: url('/assets/images/feature/skewed-rectangle-skyblue-left.svg');
+        }
+    }
+}
+
+.pseudo-before-right-positioned {
+    &:before {
+        background-image: url('/assets/images/feature/skewed-rectangle-skyblue-right.svg');
+
+        @include media-breakpoint-up(md) {
+            background-image: none;
+        }
+    }
+}
+
+.cataract-free-vision-cards {
+    @include media-breakpoint-down(sm) {
+        min-width: 50rem;
+        grid-auto-flow: column;
+    }
+
+    @include media-breakpoint-up(lg) {
+        grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+    }
+
+    @include media-breakpoint-up(xl) {
+        grid-template-columns: repeat(auto-fit, minmax(59.3rem, 1fr));
+    }
+
+    .cataract-vision-free-cards-icon {
+        svg {
+            width: 2rem;
+            height: 2rem;
+        }
+    }
+
+    & > div {
+        @include media-breakpoint-down(sm) {
+            min-width: 50rem;
+        }
+    }
+}
+
+.documents-download-form {
+    position: relative;
+
+    @include media-breakpoint-up(lg) {
+        &:before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            right: 0;
+            top: 0;
+            background-image: url('/assets/images/feature/half-skewed-shape.svg');
+            background-repeat: no-repeat;
+            z-index: -1;
+            background-position: right;
+            transform: translate(10%, 0);
+        }
+    }
+
+    &__feature-image {
+        svg {
+            width: 24rem;
+            height: 24rem;
+        }
+    }
+}

@@ -1,4 +1,6 @@
-<?php get_header('header.php');?>
+<?php get_header('header.php'); ?>
+
+<?php load_template(MY_ICLINIC_PATH . 'includes/template-parts/template-home-hero.php'); ?>
 
 <section class="section">
 	<div
@@ -12,7 +14,7 @@
 
 		<div class="swiper swiper--service-swiper">
 			<div class="section__card-container swiper-wrapper">
-				<?php load_template(MY_ICLINIC_PATH.'includes/template-parts/template-service-card.php', false)?>
+				<?php load_template(MY_ICLINIC_PATH . 'includes/template-parts/template-service-card.php', false); ?>
 
 				<div class="card swiper-slide">
 					<div class="card__header">
@@ -23,23 +25,23 @@
 						</div>
 						<div class="card__media">
 							<img class="media-image"
-								src="<?php echo MY_ICLINIC_PATH_URL.'assets/images/feature/service-card-2.png' ?>"
+								src="<?php echo MY_ICLINIC_PATH_URL . 'assets/images/feature/service-card-2.png'; ?>"
 								alt="" />
-							<?php getSVG('assets/images/icons/icon-play-blue.svg', 'media-icon')?>
+							<?php getSVG('assets/images/icons/icon-play-blue.svg', 'media-icon'); ?>
 						</div>
 					</div>
 					<div class="card__description">
 						<span class="card__chip">Age 55+</span>
 						<div class="card__description-list">
 							<div class="list">
-								<?php getSVG('assets/images/icons/icon-check-grey.svg')?>
+								<?php getSVG('assets/images/icons/icon-check-grey.svg'); ?>
 								<p class="text">
 									Best treatment for
 									<strong>Removing cloudy vision. </strong>
 								</p>
 							</div>
 							<div class="list">
-								<?php getSVG('assets/images/icons/icon-check-grey.svg')?>
+								<?php getSVG('assets/images/icons/icon-check-grey.svg'); ?>
 								<p class="text">
 									Restoring clear, natural vision.
 								</p>
@@ -57,22 +59,22 @@
 						</div>
 						<div class="card__media">
 							<img class="media-image"
-								src="<?php echo MY_ICLINIC_PATH_URL.'assets/images/feature/service-card-3.png' ?>" />
-							<?php getSVG('assets/images/icons/icon-play-blue.svg', 'media-icon')?>
+								src="<?php echo MY_ICLINIC_PATH_URL . 'assets/images/feature/service-card-3.png'; ?>" />
+							<?php getSVG('assets/images/icons/icon-play-blue.svg', 'media-icon'); ?>
 						</div>
 					</div>
 					<div class="card__description">
 						<span class="card__chip">Age 50+</span>
 						<div class="card__description-list">
 							<div class="list">
-								<?php getSVG('assets/images/icons/icon-check-grey.svg')?>
+								<?php getSVG('assets/images/icons/icon-check-grey.svg'); ?>
 								<p class="text">
 									The best treatment for
 									<strong>Freedom from spectacles.</strong>
 								</p>
 							</div>
 							<div class="list">
-								<?php getSVG('assets/images/icons/icon-check-grey.svg')?>
+								<?php getSVG('assets/images/icons/icon-check-grey.svg'); ?>
 								<p class="text">
 									See at all distances without
 									glasses Be free from glasses
@@ -92,22 +94,22 @@
 						</div>
 						<div class="card__media">
 							<img class="media-image"
-								src="<?php echo MY_ICLINIC_PATH_URL.'assets/images/feature/service-card-4.png' ?>" />
-							<?php getSVG('assets/images/icons/icon-play-blue.svg', 'media-icon')?>
+								src="<?php echo MY_ICLINIC_PATH_URL . 'assets/images/feature/service-card-4.png'; ?>" />
+							<?php getSVG('assets/images/icons/icon-play-blue.svg', 'media-icon'); ?>
 						</div>
 					</div>
 					<div class="card__description">
 						<span class="card__chip">Age 20+</span>
 						<div class="card__description-list">
 							<div class="list">
-								<?php getSVG('assets/images/icons/icon-check-grey.svg')?>
+								<?php getSVG('assets/images/icons/icon-check-grey.svg'); ?>
 								<p class="text">
 									Best treatment for
 									<strong>life without glasses.</strong>
 								</p>
 							</div>
 							<div class="list">
-								<?php getSVG('assets/images/icons/icon-check-grey.svg')?>
+								<?php getSVG('assets/images/icons/icon-check-grey.svg'); ?>
 								<p class="text">
 									Be active without risk of contact lens infections.
 								</p>
@@ -125,15 +127,15 @@
 						</div>
 						<div class="card__media">
 							<img class="media-image"
-								src="<?php echo MY_ICLINIC_PATH_URL.'assets/images/feature/service-card-5.png' ?>" />
-							<?php getSVG('assets/images/icons/icon-play-blue.svg', 'media-icon')?>
+								src="<?php echo MY_ICLINIC_PATH_URL . 'assets/images/feature/service-card-5.png'; ?>" />
+							<?php getSVG('assets/images/icons/icon-play-blue.svg', 'media-icon'); ?>
 						</div>
 					</div>
 					<div class="card__description">
 						<span class="card__chip">Age 55+</span>
 						<div class="card__description-list">
 							<div class="list">
-								<?php getSVG('assets/images/icons/icon-check-grey.svg')?>
+								<?php getSVG('assets/images/icons/icon-check-grey.svg'); ?>
 								<p class="text">
 									Best treatment for
 									<strong>Removing cloudy vision.
@@ -141,7 +143,7 @@
 								</p>
 							</div>
 							<div class="list">
-								<?php getSVG('assets/images/icons/icon-check-grey.svg')?>
+								<?php getSVG('assets/images/icons/icon-check-grey.svg'); ?>
 								<p class="text">
 									Restoring clear, natural vision.
 								</p>
@@ -160,15 +162,15 @@
 						</div>
 						<div class="card__media">
 							<img class="media-image"
-								src="<?php echo MY_ICLINIC_PATH_URL.'assets/images/feature/service-card-6.png' ?>" />
-							<?php getSVG('assets/images/icons/icon-play-blue.svg', 'media-icon')?>
+								src="<?php echo MY_ICLINIC_PATH_URL . 'assets/images/feature/service-card-6.png'; ?>" />
+							<?php getSVG('assets/images/icons/icon-play-blue.svg', 'media-icon'); ?>
 						</div>
 					</div>
 					<div class="card__description">
 						<span class="card__chip">Age 4+</span>
 						<div class="card__description-list">
 							<div class="list">
-								<?php getSVG('assets/images/icons/icon-check-grey.svg')?>
+								<?php getSVG('assets/images/icons/icon-check-grey.svg'); ?>
 								<p class="text">
 									Best treatment for
 									<strong>slowing down the progression of myopia.
@@ -176,7 +178,7 @@
 								</p>
 							</div>
 							<div class="list">
-								<?php getSVG('assets/images/icons/icon-check-grey.svg')?>
+								<?php getSVG('assets/images/icons/icon-check-grey.svg'); ?>
 								<p class="text">
 									Atropine eye drops available.
 								</p>
@@ -234,7 +236,7 @@
 		<div class="mission">
 			<div class="mission__banner desktop-view">
 				<img class="mission__image"
-					src="<?php echo MY_ICLINIC_PATH_URL.'assets/images/feature/doctor-councelling.png' ?>" />
+					src="<?php echo MY_ICLINIC_PATH_URL . 'assets/images/feature/doctor-councelling.png'; ?>" />
 
 				<div class="card-wrapper">
 					<div class="card card--mission-card">
@@ -265,15 +267,15 @@
 				<div class="stepper__progress">
 					<button class="stepper__progress-btn js-active" type="button" title="User Info">
 						Personal info
-						<?php getSVG('assets/images/icons/icon-check-white.svg', 'stepper__checkbox')?>
+						<?php getSVG('assets/images/icons/icon-check-white.svg', 'stepper__checkbox'); ?>
 					</button>
 					<button class="stepper__progress-btn" type="button" title="Address">
 						Date & Time
-						<?php getSVG('assets/images/icons/icon-check-white.svg', 'stepper__checkbox')?>
+						<?php getSVG('assets/images/icons/icon-check-white.svg', 'stepper__checkbox'); ?>
 					</button>
 					<button class="stepper__progress-btn" type="button" title="Order Info">
 						Done
-						<?php getSVG('assets/images/icons/icon-check-white.svg', 'stepper__checkbox')?>
+						<?php getSVG('assets/images/icons/icon-check-white.svg', 'stepper__checkbox'); ?>
 					</button>
 				</div>
 
@@ -316,7 +318,7 @@
 							<button style="margin-bottom: 2rem"
 								class="form__next-button button button--rounded-border js-btn-next" type="button">
 								Next
-								<?php getSVG('assets/images/icons/icon-arrow-right.svg')?>
+								<?php getSVG('assets/images/icons/icon-arrow-right.svg'); ?>
 							</button>
 						</div>
 					</div>
@@ -330,7 +332,7 @@
 							<button class="form__next-button button button--rounded-border js-btn-next"
 								id="animate-check-lottie" type="button">
 								Next
-								<?php getSVG('assets/images/icons/icon-arrow-right.svg')?>
+								<?php getSVG('assets/images/icons/icon-arrow-right.svg'); ?>
 							</button>
 						</div>
 					</div>
@@ -339,7 +341,7 @@
 					<div class="stepper__panel" data-animation="slideHorz">
 						<div class="lottie">
 							<lottie-player id="lottie-check"
-								src="<?php echo MY_ICLINIC_PATH_URL.'assets/images/lottie/check.lottie.json' ?>"
+								src="<?php echo MY_ICLINIC_PATH_URL . 'assets/images/lottie/check.lottie.json'; ?>"
 								background="transparent" speed="1" style="width: 5.3rem; height: 5.3rem;">
 							</lottie-player>
 						</div>
@@ -351,7 +353,7 @@
 							<p class="thank-you__paragraph">
 								We just sent you a confirmation email
 							</p>
-							<?php getSVG('assets/images/avaters/people-jumping.svg', 'thank-you__image')?>
+							<?php getSVG('assets/images/avaters/people-jumping.svg', 'thank-you__image'); ?>
 						</div>
 						<div class="pill pill--booking">
 							<h3 class="pill__title">Your Booking</h3>
@@ -378,10 +380,10 @@
 <section class="section">
 	<div class="section__container">
 		<div class="feature feature--save-planet feature--bg">
-			<?php getSVG('assets/images/feature/eye-ball.svg', 'eye-ball')?>
+			<?php getSVG('assets/images/feature/eye-ball.svg', 'eye-ball'); ?>
 
 			<div class="eco-image">
-				<img src="<?php echo MY_ICLINIC_PATH_URL.'assets/images/feature/eco-tree.png' ?>" />
+				<img src="<?php echo MY_ICLINIC_PATH_URL . 'assets/images/feature/eco-tree.png'; ?>" />
 			</div>
 
 			<div>
@@ -419,9 +421,9 @@
 				I am looking for ...
 			</span>
 
-			<?php getSVG('assets/images/icons/icon-arrow-circle-down.svg', 'pill__arrow-circle-down')?>
+			<?php getSVG('assets/images/icons/icon-arrow-circle-down.svg', 'pill__arrow-circle-down'); ?>
 		</div>
 	</div>
 </section>
 
-<?php get_footer('footer.php');?>
+<?php get_footer('footer.php'); ?>

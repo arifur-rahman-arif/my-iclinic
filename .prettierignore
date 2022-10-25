@@ -1,4 +1,12 @@
+*.json
+*.lock
+*.config.*
+package.json
+composer.json
+composer.lock
 yarn.lock
 Contributors.md
 node_modules/**
 assets/**
+build/**
+vendor/**

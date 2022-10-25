@@ -19,6 +19,25 @@ export const parents = (node: Element | null, targetParent: string = ''): Array<
     return parentElements || [];
 };
 
-export const getElementTopPosition = (element: HTMLElement): number => {
+export const getElementTopPosition = (element: HTMLElement | null): number => {
     return element ? element.offsetTop + getElementTopPosition(element.offsetParent as HTMLElement) : 0;
+};
+
+export const getParentElement = (
+    node: Element | null,
+    targetParentSelector: string = ''
+): Array<Element> | Element | boolean => {
+    let parentElement: Element | null = null;
+
+    while (node) {
+        const parentNode = node?.parentNode as Element;
+
+        if (targetParentSelector && parentNode?.classList?.contains(targetParentSelector)) {
+            return (parentElement = parentNode);
+        }
+
+        node = node.parentNode as Element;
+    }
+
+    return parentElement || false;
 };

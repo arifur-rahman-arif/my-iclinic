@@ -1,0 +1,27 @@
+.mobile-view {
+    @include media-breakpoint-up(sm) {
+        display: none !important;
+    }
+}
+
+.mobile-to-tablet-view {
+    @include media-breakpoint-up(md) {
+        display: none !important;
+    }
+}
+
+.tablet-view {
+    display: none;
+
+    @include media-breakpoint-up(md) {
+        display: block;
+    }
+}
+
+.desktop-view {
+    display: none !important;
+
+    @include media-breakpoint-up(lg) {
+        display: block !important;
+    }
+}

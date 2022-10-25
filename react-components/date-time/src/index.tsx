@@ -1,6 +1,10 @@
 import App from './App';
 
-// @ts-ignore
-const root = ReactDOM.createRoot(document.getElementById('date-and-time-form') as HTMLElement);
+const dateTimeForm = document.getElementById('date-and-time-form');
 
-root.render(<App />);
+if (dateTimeForm) {
+    // @ts-ignore
+    const root = ReactDOM.createRoot(dateTimeForm as HTMLElement);
+
+    root.render(<App />);
+}
