@@ -1,3 +1,5 @@
+<!-- #format-tailwind -->
+
 <div class="free-vision-cards col-span-2 col-start-1 mt-[9rem]">
     <div
         class="cataract-free-vision-cards swiper-wrapper mt-[6rem] grid w-full grid-flow-col items-stretch justify-items-center gap-12 sm:grid-flow-row md:mt-[5rem] lg:mt-[30rem] xl:mt-[22rem]"
@@ -14,7 +16,7 @@
                 >
                     <img
                         class="h-full w-full rounded-[50%] object-cover"
-                        src="<?php echo MY_ICLINIC_PATH_URL.'assets/images/feature/card-improved-vision.png'; ?>"
+                        src="<?php echo MY_ICLINIC_PATH_URL . 'assets/images/feature/card-improved-vision.png'; ?>"
                         alt=""
                     />
                 </div>
@@ -31,25 +33,37 @@
 
                 <ul class="mt-[1.5rem] flex w-full flex-col items-start justify-start gap-[1.5rem] py-12 pl-12">
                     <li class="flex items-start justify-start gap-4">
-                        <?php getSVG('assets/images/icons/icon-check-grey.svg', 'cataract-vision-free-cards-icon mt-[0.2rem]');?>
+                        <?php getSVG(
+                            'assets/images/icons/icon-check-grey.svg',
+                            'cataract-vision-free-cards-icon mt-[0.2rem]'
+                        ); ?>
                         <p class="text-left font-fontMedium text-[1.6rem]">
                             All the colours around me are bright again; I can’t believe the detail
                         </p>
                     </li>
                     <li class="flex items-start justify-start gap-4">
-                        <?php getSVG('assets/images/icons/icon-check-grey.svg', 'cataract-vision-free-cards-icon mt-[0.2rem]');?>
+                        <?php getSVG(
+                            'assets/images/icons/icon-check-grey.svg',
+                            'cataract-vision-free-cards-icon mt-[0.2rem]'
+                        ); ?>
                         <p class="text-left font-fontMedium text-[1.6rem]">
                             The real plus is that I don’t have to wear contact lenses and can see better
                         </p>
                     </li>
                     <li class="flex items-start justify-start gap-4">
-                        <?php getSVG('assets/images/icons/icon-check-grey.svg', 'cataract-vision-free-cards-icon mt-[0.2rem]');?>
+                        <?php getSVG(
+                            'assets/images/icons/icon-check-grey.svg',
+                            'cataract-vision-free-cards-icon mt-[0.2rem]'
+                        ); ?>
                         <p class="text-left font-fontMedium text-[1.6rem]">
                             When I go for country walks, I can now see the birds in the trees, or a bunny hopping...
                         </p>
                     </li>
                     <li class="flex items-start justify-start gap-4">
-                        <?php getSVG('assets/images/icons/icon-check-grey.svg', 'cataract-vision-free-cards-icon mt-[0.2rem]');?>
+                        <?php getSVG(
+                            'assets/images/icons/icon-check-grey.svg',
+                            'cataract-vision-free-cards-icon mt-[0.2rem]'
+                        ); ?>
                         <p class="text-left font-fontMedium text-[1.6rem]">
                             Now I can finally read all the motorway signs when I drive…
                         </p>
@@ -70,7 +84,7 @@
                 >
                     <img
                         class="h-full w-full rounded-[50%] object-cover"
-                        src="<?php echo MY_ICLINIC_PATH_URL.'assets/images/feature/card-man-drinking-water.png'; ?>"
+                        src="<?php echo MY_ICLINIC_PATH_URL . 'assets/images/feature/card-man-drinking-water.png'; ?>"
                         alt=""
                     />
                 </div>
@@ -89,15 +103,24 @@
 
                 <ul class="mt-[1.5rem] flex w-full flex-col items-start justify-start gap-[1.5rem] py-12 pl-12">
                     <li class="flex items-start justify-start gap-4">
-                        <?php getSVG('assets/images/icons/icon-check-grey.svg', 'cataract-vision-free-cards-icon mt-[0.2rem]');?>
+                        <?php getSVG(
+                            'assets/images/icons/icon-check-grey.svg',
+                            'cataract-vision-free-cards-icon mt-[0.2rem]'
+                        ); ?>
                         <p class="text-left font-fontMedium text-[1.6rem]">No more compromise in your daily tasks</p>
                     </li>
                     <li class="flex items-start justify-start gap-4">
-                        <?php getSVG('assets/images/icons/icon-check-grey.svg', 'cataract-vision-free-cards-icon mt-[0.2rem]');?>
+                        <?php getSVG(
+                            'assets/images/icons/icon-check-grey.svg',
+                            'cataract-vision-free-cards-icon mt-[0.2rem]'
+                        ); ?>
                         <p class="text-left font-fontMedium text-[1.6rem]">Full independence in your routine</p>
                     </li>
                     <li class="flex items-start justify-start gap-4">
-                        <?php getSVG('assets/images/icons/icon-check-grey.svg', 'cataract-vision-free-cards-icon mt-[0.2rem]');?>
+                        <?php getSVG(
+                            'assets/images/icons/icon-check-grey.svg',
+                            'cataract-vision-free-cards-icon mt-[0.2rem]'
+                        ); ?>
                         <p class="text-left font-fontMedium text-[1.6rem]">An easy discovery of new hobbies</p>
                     </li>
                 </ul>
@@ -116,7 +139,7 @@
                 >
                     <img
                         class="h-full w-full rounded-[50%] object-cover"
-                        src="<?php echo MY_ICLINIC_PATH_URL.'assets/images/feature/card-user-writing.png'; ?>"
+                        src="<?php echo MY_ICLINIC_PATH_URL . 'assets/images/feature/card-user-writing.png'; ?>"
                         alt=""
                     />
                 </div>
@@ -130,15 +153,24 @@
 
                 <ul class="mt-[1.5rem] flex w-full flex-col items-start justify-start gap-[1.5rem] py-12 pl-12">
                     <li class="flex items-start justify-start gap-4">
-                        <?php getSVG('assets/images/icons/icon-check-grey.svg', 'cataract-vision-free-cards-icon mt-[0.2rem]');?>
+                        <?php getSVG(
+                            'assets/images/icons/icon-check-grey.svg',
+                            'cataract-vision-free-cards-icon mt-[0.2rem]'
+                        ); ?>
                         <p class="text-left font-fontMedium text-[1.6rem]">An average of 60 minutes for surgery</p>
                     </li>
                     <li class="flex items-start justify-start gap-4">
-                        <?php getSVG('assets/images/icons/icon-check-grey.svg', 'cataract-vision-free-cards-icon mt-[0.2rem]');?>
+                        <?php getSVG(
+                            'assets/images/icons/icon-check-grey.svg',
+                            'cataract-vision-free-cards-icon mt-[0.2rem]'
+                        ); ?>
                         <p class="text-left font-fontMedium text-[1.6rem]">Our friendly nurse team always beside you</p>
                     </li>
                     <li class="flex items-start justify-start gap-4">
-                        <?php getSVG('assets/images/icons/icon-check-grey.svg', 'cataract-vision-free-cards-icon mt-[0.2rem]');?>
+                        <?php getSVG(
+                            'assets/images/icons/icon-check-grey.svg',
+                            'cataract-vision-free-cards-icon mt-[0.2rem]'
+                        ); ?>
                         <p class="text-left font-fontMedium text-[1.6rem]">
                             One specialist dedicated to your treatment
                         </p>
@@ -159,7 +191,7 @@
                 >
                     <img
                         class="h-full w-full rounded-[50%] object-cover"
-                        src="<?php echo MY_ICLINIC_PATH_URL.'assets/images/feature/card-lady-smiling.png'; ?>"
+                        src="<?php echo MY_ICLINIC_PATH_URL . 'assets/images/feature/card-lady-smiling.png'; ?>"
                         alt=""
                     />
                 </div>
@@ -176,23 +208,35 @@
 
                 <ul class="mt-[1.5rem] flex w-full flex-col items-start justify-start gap-[1.5rem] py-12 pl-12">
                     <li class="flex items-start justify-start gap-4">
-                        <?php getSVG('assets/images/icons/icon-check-grey.svg', 'cataract-vision-free-cards-icon mt-[0.2rem]');?>
+                        <?php getSVG(
+                            'assets/images/icons/icon-check-grey.svg',
+                            'cataract-vision-free-cards-icon mt-[0.2rem]'
+                        ); ?>
                         <p class="text-left font-fontMedium text-[1.6rem]">
                             A detailed chat about your aftercare routine with our nurses
                         </p>
                     </li>
                     <li class="flex items-start justify-start gap-4">
-                        <?php getSVG('assets/images/icons/icon-check-grey.svg', 'cataract-vision-free-cards-icon mt-[0.2rem]');?>
+                        <?php getSVG(
+                            'assets/images/icons/icon-check-grey.svg',
+                            'cataract-vision-free-cards-icon mt-[0.2rem]'
+                        ); ?>
                         <p class="text-left font-fontMedium text-[1.6rem]">2 weeks recovery time at home</p>
                     </li>
                     <li class="flex items-start justify-start gap-4">
-                        <?php getSVG('assets/images/icons/icon-check-grey.svg', 'cataract-vision-free-cards-icon mt-[0.2rem]');?>
+                        <?php getSVG(
+                            'assets/images/icons/icon-check-grey.svg',
+                            'cataract-vision-free-cards-icon mt-[0.2rem]'
+                        ); ?>
                         <p class="text-left font-fontMedium text-[1.6rem]">
                             A detailed assessment of your vision after surgery
                         </p>
                     </li>
                     <li class="flex items-start justify-start gap-4">
-                        <?php getSVG('assets/images/icons/icon-check-grey.svg', 'cataract-vision-free-cards-icon mt-[0.2rem]');?>
+                        <?php getSVG(
+                            'assets/images/icons/icon-check-grey.svg',
+                            'cataract-vision-free-cards-icon mt-[0.2rem]'
+                        ); ?>
                         <p class="text-left font-fontMedium text-[1.6rem]">
                             A detailed assessment of your vision after surgery
                         </p>

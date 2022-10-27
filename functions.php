@@ -4,7 +4,7 @@ if (!defined('ABSPATH')) {
     return;
 }
 
-require_once trailingslashit(get_theme_file_path()).'vendor/autoload.php';
+require_once trailingslashit(get_theme_file_path()) . 'vendor/autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->safeLoad();
 
@@ -24,15 +24,15 @@ if (!defined('MY_ICLINIC_VERSION')) {
     define(
         'MY_ICLINIC_VERSION',
         MY_ICLINIC_MODE === 'development'
-        ? time()
-        : (isset($_ENV['MY_ICLINIC_VERSION'])
-            ? $_ENV['MY_ICLINIC_VERSION']
-            : '1.0.0')
+            ? time()
+            : (isset($_ENV['MY_ICLINIC_VERSION'])
+                ? $_ENV['MY_ICLINIC_VERSION']
+                : '1.0.0')
     );
 }
 
-require_once MY_ICLINIC_PATH.'includes/functions/nav-functions.php';
-require_once MY_ICLINIC_PATH.'includes/functions/utility-functions.php';
+require_once MY_ICLINIC_PATH . 'includes/functions/nav-functions.php';
+require_once MY_ICLINIC_PATH . 'includes/functions/utility-functions.php';
 
 // Include & initiate classes
 new \DigitalTechnologia\MyIclinic\ActionHooks();

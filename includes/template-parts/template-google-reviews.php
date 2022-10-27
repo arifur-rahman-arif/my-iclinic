@@ -1,3 +1,5 @@
+<!-- #format-tailwind -->
+
 <div
     class="pill pill-google-reviews<?php echo ' ' . esc_attr(isset($args['modifiers']) ? $args['modifiers'] : null); ?>"
 >

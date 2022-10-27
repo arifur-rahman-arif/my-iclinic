@@ -1,3 +1,5 @@
+<!-- #format-tailwind -->
+
 <section class="hero hero--cataract">
     <div class="hero__container">
         <div class="hero__title-container hero__title-container--cataract">
@@ -20,7 +22,7 @@
         </div>
 
         <?php load_template(MY_ICLINIC_PATH . 'includes/template-parts/template-google-reviews.php', false, [
-      'modifiers' =>
+            'modifiers' =>
         'pill-google-reviews--desktop', ]); ?>
     </div>
 </section>

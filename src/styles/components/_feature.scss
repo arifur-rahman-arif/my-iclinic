@@ -70,6 +70,13 @@
             width: 4.1rem;
             height: 4.1rem;
         }
+
+        &--lined-icon {
+            svg {
+                width: 10.8rem;
+                height: 3.2rem;
+            }
+        }
     }
 
     &__header {

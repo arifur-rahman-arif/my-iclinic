@@ -273,4 +273,14 @@
             position: relative;
         }
     }
+
+    &--premium-lenses {
+        @include media-breakpoint-up(sm) {
+            background-image: url('/assets/images/hero/premium-lenses.png');
+            background-repeat: no-repeat;
+            background-position: 100% 50%;
+            background-size: cover;
+            position: relative;
+        }
+    }
 }

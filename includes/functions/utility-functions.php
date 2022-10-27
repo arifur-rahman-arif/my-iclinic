@@ -7,8 +7,7 @@
  * @param  string $class     [explicits description]
  * @return void
  */
-function getSVG(string $imagePath, string $class = '')
-{
+function getSVG(string $imagePath, string $class = '') {
     if (!$imagePath) {
         return null;
     }
@@ -25,8 +24,7 @@ function getSVG(string $imagePath, string $class = '')
  * @param  array  $options [explicite description]
  * @return void
  */
-function lottie(string $path, array $options = [])
-{
+function lottie(string $path, array $options = []) {
     echo '
 <div class="lottie">
 <lottie-player src="' .

@@ -1,11 +1,13 @@
 *.json
 *.lock
 *.config.*
+*.sh
+*.conf
 package.json
 composer.json
 composer.lock
 yarn.lock
-Contributors.md
+*.md
 node_modules/**
 assets/**
 build/**

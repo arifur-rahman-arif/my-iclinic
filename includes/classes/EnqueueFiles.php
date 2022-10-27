@@ -1,10 +1,8 @@
 <?php
 namespace DigitalTechnologia\MyIclinic;
 
-trait EnqueueFiles
-{
-    public function enqueueAssetFiles()
-    {
+trait EnqueueFiles {
+    public function enqueueAssetFiles() {
         $this->loadStyles();
         $this->loadScripts();
     }
@@ -14,15 +12,14 @@ trait EnqueueFiles
      * Load the required JS files for the project
      * @return void
      */
-    public function loadScripts()
-    {
+    public function loadScripts() {
         // Include external JS libraries here
         wp_enqueue_script(
             'swiper-js',
             MY_ICLINIC_PATH_URL . 'assets/lib/scripts/swiper.min.js',
             [],
             MY_ICLINIC_VERSION,
-            false
+            __return_false()
         );
         wp_enqueue_script(
             'lottie-js',
@@ -93,8 +90,7 @@ trait EnqueueFiles
      * Load the required CSS files for the project
      * @return void
      */
-    public function loadStyles()
-    {
+    public function loadStyles() {
         wp_enqueue_style('my-iclinic-theme-css', get_stylesheet_uri());
         wp_enqueue_style(
             'swiper-css',

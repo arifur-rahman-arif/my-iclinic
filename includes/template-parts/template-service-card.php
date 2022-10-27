@@ -1,3 +1,5 @@
+<!-- #format-tailwind -->
+
 <div class="card swiper-slide">
     <div class="card__header">
         <div class="card__title">

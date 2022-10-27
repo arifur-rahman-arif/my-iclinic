@@ -1,3 +1,4 @@
+<!-- #format-tailwind -->
 <section class="section faq">
     <div class="section__container !max-w-[90rem]">
         <h3 class="section__title section__title--light">

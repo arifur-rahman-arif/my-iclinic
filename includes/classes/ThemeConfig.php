@@ -4,15 +4,13 @@ namespace DigitalTechnologia\MyIclinic;
 /**
  *
  */
-trait ThemeConfig
-{
+trait ThemeConfig {
     /**
      * Method setupThemeConfig
      * Setup the theme configuration for the my-iclinic theme. ex: menus, title-tag, html5, custom-logo, registering nav menus etc.
      * @return void
      */
-    public function setupThemeConfig()
-    {
+    public function setupThemeConfig() {
         $this->themeSupport();
         $this->registerMenus();
     }
@@ -22,8 +20,7 @@ trait ThemeConfig
      * Add theme support for the my-iclinic theme
      * @return void
      */
-    public function themeSupport()
-    {
+    public function themeSupport() {
         add_theme_support('menus');
         add_theme_support('title-tag');
         add_theme_support('post-thumbnails');
@@ -48,8 +45,7 @@ trait ThemeConfig
      * Register navigation menu for the my-iclinic theme
      * @return void
      */
-    public static function registerMenus()
-    {
+    public static function registerMenus() {
         register_nav_menus([
             'headerMenu' => __('Header Menu'),
             'footerMenu' => __('Footer Menu'),

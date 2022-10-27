@@ -1,3 +1,5 @@
+<!-- #format-tailwind -->
+
 <section class="section overflow-x-hidden sm:overflow-x-visible md:px-8 xl:!mt-[25rem]">
     <div
         class="section__container grid-flow flex flex-col-reverse md:grid md:grid-cols-2 md:gap-8 md:rounded-[var(--border-radius)] md:bg-white md:!px-16 md:!pb-32 md:drop-shadow-primary"
@@ -35,7 +37,7 @@
             <div class="max-h-[60.7rem] w-full overflow-hidden rounded-[var(--border-radius)] xl:rounded-bl-none">
                 <img
                     class="h-full w-full object-cover"
-                    src="<?php echo MY_ICLINIC_PATH_URL.'assets/images/feature/lady-smiling.png'; ?>"
+                    src="<?php echo MY_ICLINIC_PATH_URL . 'assets/images/feature/lady-smiling.png'; ?>"
                 />
             </div>
         </div>

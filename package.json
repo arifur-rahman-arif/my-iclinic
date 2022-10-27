@@ -11,8 +11,9 @@
         "build": "webpack --config webpack.config.js --mode production && tailwindcss -i ./src/styles/tailwind.css -o ./build/styles/tailwind.css --minify",
         "code-check": "npx eslint . --ext .ts --ext .tsx",
         "format": "npx prettier --write \"**/*.+(html|css|scss|sass|less|js|jsx|ts|tsx|json|php)\"",
-        "tailwind-format": "shell-scripts/pretify-php.sh > /dev/null",
-        "stylelint": "npx stylelint"
+        "tailwind-format": "shell-scripts/pretify-php.sh>/dev/null",
+        "stylelint": "npx stylelint",
+        "prepare": "husky install"
     },
     "devDependencies": {
         "@babel/core": "^7.19.3",
@@ -28,7 +29,6 @@
         "browser-sync": "^2.27.10",
         "browser-sync-webpack-plugin": "^2.3.0",
         "chokidar-cli": "^3.0.0",
-        "concurrently": "^7.4.0",
         "css-loader": "^6.7.1",
         "eslint": "^8.25.0",
         "eslint-config-google": "^0.14.0",
@@ -37,6 +37,7 @@
         "eslint-plugin-n": "^15.3.0",
         "eslint-plugin-promise": "^6.0.1",
         "glob-all": "^3.3.0",
+        "husky": "^8.0.0",
         "mini-css-extract-plugin": "^2.6.1",
         "postcss-lit": "^0.5.0",
         "postcss-loader": "^7.0.1",

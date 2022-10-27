@@ -14,43 +14,12 @@
                     'documents-download-form__feature-image'
                 ); ?>
             </div>
-            <h3 class="mt-8 text-center font-fontBold text-[2.8rem] leading-[3.2rem]">
-                Get the guide to Modern Cataract Surgery
+            <h3 class="text-center font-fontBold text-[2.8rem] leading-[3.2rem]">
+                Get the guide to Presbyond laser syrgery
             </h3>
-            <ul class="mt-12 flex w-full flex-col items-start justify-start gap-[1.5rem] pb-12 pl-[7.5rem]">
-                <li class="flex items-start justify-start gap-4">
-                    <?php getSVG(
-                        'assets/images/icons/icon-check-grey.svg',
-                        'cataract-vision-free-cards-icon mt-[0.4rem]'
-                    ); ?>
-                    <p class="text-left font-fontMedium text-[1.6rem]">
-                        Learn everything you need to know about cataracts
-                    </p>
-                </li>
-                <li class="flex items-start justify-start gap-4">
-                    <?php getSVG(
-                        'assets/images/icons/icon-check-grey.svg',
-                        'cataract-vision-free-cards-icon mt-[0.4rem]'
-                    ); ?>
-                    <p class="text-left font-fontMedium text-[1.6rem]">Understand your treatment options</p>
-                </li>
-                <li class="flex items-start justify-start gap-4">
-                    <?php getSVG(
-                        'assets/images/icons/icon-check-grey.svg',
-                        'cataract-vision-free-cards-icon mt-[0.4rem]'
-                    ); ?>
-                    <p class="text-left font-fontMedium text-[1.6rem]">Know how modern cataract surgery works</p>
-                </li>
-                <li class="flex items-start justify-start gap-4">
-                    <?php getSVG(
-                        'assets/images/icons/icon-check-grey.svg',
-                        'cataract-vision-free-cards-icon mt-[0.4rem]'
-                    ); ?>
-                    <p class="text-left font-fontMedium text-[1.6rem]">
-                        Be one step closer to wonderfully clear vision
-                    </p>
-                </li>
-            </ul>
+            <p class="mt-[1.5rem] max-w-[30rem] text-center text-[1.6rem] leading-[2.4rem]">
+                Presbyond baspoke laser treatment for over 40`s
+            </p>
         </div>
 
         <!-- Grid Item #2 -->

@@ -1,3 +1,5 @@
+<!-- #format-tailwind -->
+
 <section class="section">
     <div class="section__container">
         <div class="mx-auto flex flex-wrap items-center justify-center gap-12">

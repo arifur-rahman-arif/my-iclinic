@@ -22,7 +22,8 @@ module.exports = {
                 fontLatoBold: "'Lato-Bold', arial, helvetica, sans-serif"
             },
             colors: {
-                primary: '#384043'
+                primary: '#384043',
+                brand: '#33d9ff'
             },
             backgroundColor: {}
         }

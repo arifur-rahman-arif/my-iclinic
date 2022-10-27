@@ -2,35 +2,19 @@
 
 echo "
 echo '
-# Added to mitigate CVE-2017-8295 vulnerability
-UseCanonicalName On
-
 <VirtualHost *:80>
     ServerAdmin webmaster@localhost
-        
-	ServerName $SERVER_URL
-
-	ServerAlias www.$SERVER_URL
-	
-	DocumentRoot /var/www/$SERVER_URL
-
-	<Directory /var/www/$SERVER_URL/>
-		Options FollowSymLinks
-
-		AllowOverride All
-
-		Require all granted
-	</Directory>
-</VirtualHost>
-
-<VirtualHost *:80>
- 	ServerName null
-
-	ServerAlias *
-
-	Redirect 404 /
-
-	ErrorDocument 404 \"$SITE_DOMAIN/404\"
+    ServerName $SERVER_URL
+    ServerAlias www.$SERVER_URL
+    DocumentRoot /var/www/$SERVER_URL
+    <Directory /var/www/$SERVER_URL>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+    <IfModule mod_dir.c>
+        DirectoryIndex index.php index.pl index.cgi index.html index.xhtml index.htm
+    </IfModule>
 </VirtualHost>
 ' > /etc/apache2/sites-available/$SERVER_URL.conf
 
@@ -48,4 +32,4 @@ interact
 ' > /etc/apache2/sites-available/$SERVER_URL.exp
 
 expect /etc/apache2/sites-available/$SERVER_URL.exp && exit
-" > $CI_COMMIT_REF_SLUG-make-staging-env.sh
+" >$CI_COMMIT_REF_SLUG-make-staging-env.sh
