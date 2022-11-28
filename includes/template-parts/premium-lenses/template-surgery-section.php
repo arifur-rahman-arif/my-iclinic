@@ -1,6 +1,6 @@
 <!-- #format-tailwind -->
 
-<section class="section">
+<section class="section md:!mt-[17rem] xl:!mt-[20rem]">
     <div class="section__container">
         <h3
             class="section__title section__title--light section__title--aligned-left-desktop section__title--yellow-pseudo-border-left-desktop"
@@ -273,12 +273,16 @@
                 </div>
 
                 <div class="item-right">
-                    <div class="image-wrapper">
-                        <img
-                            class="simple-process-image !object-contain"
-                            src="<?php echo MY_ICLINIC_PATH_URL . 'assets/images/feature/edof-lenses.png'; ?>"
-                            alt=""
-                        />
+                    <div class="image-wrapper image-wrapper--extended-size">
+                        <div class="lottie">
+                            <lottie-player
+                                src="<?php echo MY_ICLINIC_PATH_URL . 'assets/images/lottie/edof.lottie.json'; ?>"
+                                background="transparent"
+                                speed="1"
+                                autoplay
+                            >
+                            </lottie-player>
+                        </div>
                     </div>
                 </div>
             </div>

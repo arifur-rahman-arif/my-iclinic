@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-// import 'react-calendar/dist/Calendar.css';
+import 'react-calendar/dist/Calendar.css';
 import Calendar from 'react-calendar';
 
 export const App = () => {

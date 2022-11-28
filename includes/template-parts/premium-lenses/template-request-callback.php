@@ -1,6 +1,6 @@
 <!-- #format-tailwind -->
 
-<section class="section section--request-calback" id="request-call-back-form">
+<section class="section section--request-calback md:min-h-[71rem]" id="request-call-back-form">
     <form class="form form--request-callback">
         <div id="form-scroll-start-point"></div>
 

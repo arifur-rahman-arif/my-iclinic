@@ -139,6 +139,11 @@
                 object-fit: cover;
                 border-radius: $border-radius;
             }
+
+            &--extended-size {
+                max-width: 61rem;
+                height: 61rem;
+            }
         }
     }
 

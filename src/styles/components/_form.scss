@@ -203,10 +203,14 @@
             font-size: 2rem;
         }
 
+        &__tile--now {
+            background: #ffffa9 !important;
+        }
+
         &__tile--active {
-            background: none;
             position: relative;
             z-index: 1;
+            background: none !important;
 
             &:hover,
             &:active,
@@ -224,7 +228,7 @@
                 top: 50%;
                 transform: translate(-49%, -50%);
                 z-index: -1;
-                background-color: #00cfff;
+                background: #00cfff;
             }
         }
 

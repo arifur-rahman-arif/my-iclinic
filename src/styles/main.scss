@@ -24,6 +24,7 @@
         margin: 0 auto;
         background-color: #ffffff;
         height: 100%;
+        max-width: 2560px;
         overflow-x: hidden;
     }
 
@@ -56,6 +57,15 @@
     h6 {
         font-weight: bolder;
     }
+
+    #chatbot-body::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    #chatbot-body::-webkit-scrollbar-thumb {
+        background: linear-gradient(to top, #33d9ff 0%, transparent 100%);
+        border-radius: 15px;
+    }
 }
 
 // Load utilities
@@ -84,3 +94,4 @@
 @import 'components/accordion';
 @import 'components/random';
 @import 'components/faq';
+@import 'components/rounded-percentage';

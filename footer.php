@@ -53,8 +53,8 @@
 
 		<div class="footer__social">
 			<?php getSVG('assets/images/icons/icon-twitter-outline-svg.svg'); ?>
-			<?php getSVG('assets/images/icons/icon-facebook-outline.svg'); ?>
-			<?php getSVG('assets/images/icons/icon-instagram-outline.svg'); ?>
+<?php getSVG('assets/images/icons/icon-facebook-outline.svg'); ?>
+<?php getSVG('assets/images/icons/icon-instagram-outline.svg'); ?>
 		</div>
 
 		<div class="footer__contact-button">
@@ -118,6 +118,9 @@
 		</ul>
 	</div>
 </footer>
+
+<!-- Chatbot template -->
+<?php load_template(MY_ICLINIC_PATH . 'includes/template-parts/chatbot/template-chatbot.php'); ?>
 
 <!-- JS File -->
 <?php wp_footer(); ?>

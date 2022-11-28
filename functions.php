@@ -20,6 +20,10 @@ if (!defined('MY_ICLINIC_MODE')) {
     define('MY_ICLINIC_MODE', isset($_ENV['MY_ICLINIC_MODE']) ? $_ENV['MY_ICLINIC_MODE'] : 'production');
 }
 
+if (!defined('TEXT_DOMAIN')) {
+    define('TEXT_DOMAIN', 'iclinic');
+}
+
 if (!defined('MY_ICLINIC_VERSION')) {
     define(
         'MY_ICLINIC_VERSION',
@@ -36,3 +40,4 @@ require_once MY_ICLINIC_PATH . 'includes/functions/utility-functions.php';
 
 // Include & initiate classes
 new \DigitalTechnologia\MyIclinic\ActionHooks();
+// new \DigitalTechnologia\MyIclinic\ChatServer\ChatServer();

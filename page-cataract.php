@@ -1,3 +1,8 @@
+<?php
+/* Template Name: Cataract */
+?>
+
+
 <?php get_header(); ?>
 
 <?php load_template(MY_ICLINIC_PATH . 'includes/template-parts/template-cataract-hero.php'); ?>
@@ -69,14 +74,17 @@
 			</div>
 
 			<div class="flex justify-start items-center gap-[1.5rem] w-full">
-				<input id="remember-me" name="remember-me" type="checkbox" class="h-[2.4rem] w-[2.4rem] border-[#697072] accent-brand">
-				<label for="remember-me" class="font-fontMedium text-[#697072] text-[1.6rem] leading-[2.4rem]">I accept the
-					<a href="#" class="text-[#0085FF] hover:underline-offset-8 hover:underline hover:decoration-[#0085FF]">terms and conditions</a>
+				<input id="remember-me" name="remember-me" type="checkbox"
+					class="h-[2.4rem] w-[2.4rem] border-[#697072] accent-brand">
+				<label for="remember-me" class="font-fontMedium text-[#697072] text-[1.6rem] leading-[2.4rem]">I accept
+					the
+					<a href="#"
+						class="text-[#0085FF] hover:underline-offset-8 hover:underline hover:decoration-[#0085FF]">terms
+						and conditions</a>
 				</label>
 			</div>
 
-			<button class="form__next-button button button--rounded-border js-btn-next"
-				type="button">
+			<button class="form__next-button button button--rounded-border js-btn-next" type="button">
 				Next
 				<?php getSVG('assets/images/icons/icon-arrow-right.svg'); ?>
 			</button>
@@ -358,10 +366,10 @@
 					</div>
 					<div class="flex items-center justify-center">
 						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
-<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
-<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
-<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
-<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
 					</div>
 				</div>
 				<div class="
@@ -390,10 +398,10 @@
 					</div>
 					<div class="flex items-center justify-center">
 						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
-<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
-<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
-<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
-<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
 					</div>
 				</div>
 			</div>
@@ -443,7 +451,7 @@
 				cursor-pointer
 			">
 				<?php getSVG('assets/images/icons/icon-play-blue-rounded.svg', 'col-span-2'); ?>
-<?php getSVG('assets/images/icons/icon-play-line.svg', 'flex items-center justify-center'); ?>
+				<?php getSVG('assets/images/icons/icon-play-line.svg', 'flex items-center justify-center'); ?>
 				<span class="uppercase text-[1.2rem] font-fontBold text-primary ml-[-1rem]">Play video</span>
 			</div>
 		</div>

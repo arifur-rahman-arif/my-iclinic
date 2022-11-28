@@ -37,10 +37,10 @@
 
     &__checkbox {
         position: absolute;
-        top: 50%;
+        top: 0;
         left: 50%;
         display: block;
-        transform: translate(-50%, -74%);
+        transform: translate(-50%, 135%);
         z-index: 5;
         pointer-events: none;
     }

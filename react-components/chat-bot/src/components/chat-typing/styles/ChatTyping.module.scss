@@ -1,0 +1,31 @@
+.chat {
+    & > span {
+        display: block;
+        animation: typingAnimation 1.8s infinite ease-in-out;
+
+        &:nth-child(1) {
+            animation-delay: 200ms;
+        }
+        &:nth-child(2) {
+            animation-delay: 300ms;
+        }
+        &:nth-child(3) {
+            animation-delay: 400ms;
+        }
+    }
+
+    @keyframes typingAnimation {
+        0% {
+            transform: translateY(0px);
+            background-color: #33d9ff;
+        }
+        28% {
+            transform: translateY(-7px);
+            background-color: #33daff6e;
+        }
+        44% {
+            transform: translateY(0px);
+            background-color: grey;
+        }
+    }
+}

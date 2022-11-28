@@ -56,6 +56,11 @@
         font-family: $font-lato-bold;
 
         @include media-breakpoint-up(sm) {
+            font-size: 3.2rem;
+            line-height: 3.2rem;
+        }
+
+        @include media-breakpoint-up(lg) {
             font-size: 4.8rem;
             line-height: 4.8rem;
         }
@@ -65,6 +70,11 @@
             font-family: $font-lato-bold;
 
             @include media-breakpoint-up(sm) {
+                font-size: 3.2rem;
+                line-height: 3.2rem;
+            }
+
+            @include media-breakpoint-up(lg) {
                 font-size: 4.8rem;
             }
         }
@@ -142,7 +152,7 @@
         p {
             text-align: center;
             font-size: 1.6rem;
-            font-family: $font-light;
+            font-family: $font-medium;
             line-height: 2.4rem;
             text-align: left;
             max-width: 68.2rem;

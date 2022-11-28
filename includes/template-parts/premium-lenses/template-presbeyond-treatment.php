@@ -33,7 +33,7 @@
                 <h4
                     class="ml-8 hidden max-w-[31.2rem] text-left font-fontBold text-[2.8rem] leading-[3.2rem] text-[#003C55] md:block"
                 >
-                    Be Glasses freeAfter cataract surgery
+                    Be Glasses free <br />After cataract surgery
                 </h4>
 
                 <h3

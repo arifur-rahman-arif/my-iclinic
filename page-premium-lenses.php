@@ -6,8 +6,8 @@
 
 <?php load_template(MY_ICLINIC_PATH . 'includes/template-parts/premium-lenses/template-hero.php'); ?>
 <?php load_template(MY_ICLINIC_PATH . 'includes/template-parts/premium-lenses/template-request-callback.php'); ?>
-<?php load_template(MY_ICLINIC_PATH . 'includes/template-parts/premium-lenses/template-presbeyond-treatment.php'); ?>
 <?php load_template(MY_ICLINIC_PATH . 'includes/template-parts/premium-lenses/template-without-needing-glass.php'); ?>
+<?php load_template(MY_ICLINIC_PATH . 'includes/template-parts/premium-lenses/template-presbeyond-treatment.php'); ?>
 <?php load_template(MY_ICLINIC_PATH . 'includes/template-parts/premium-lenses/template-surgery-section.php'); ?>
 <?php load_template(MY_ICLINIC_PATH . 'includes/template-parts/cataract/template-company-logos.php'); ?>
 <?php load_template(MY_ICLINIC_PATH . 'includes/template-parts/premium-lenses/template-presbeyond-surgery.php'); ?>
@@ -18,7 +18,7 @@
 			<!-- Swiper -->
 			<div class="swiper-wrapper">
 				<div class="
-				swiper-slide
+					swiper-slide
 				 bg-white
 				 py-[3.7rem]
 				 px-[4.4rem]
@@ -42,17 +42,14 @@
 						<span>Co founder of xxxxxx</span>
 					</div>
 					<div class="flex items-center justify-center">
-<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
-<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
-<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
-<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
-<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
 					</div>
 				</div>
-				<div class="
-				swiper-slide
-				 bg-white
-				 py-[3.7rem]
+				<div class="swiper-slide bg-white py-[3.7rem]
 				 px-[4.4rem]
 				 drop-shadow-primary
 				 rounded-primary
@@ -75,10 +72,160 @@
 					</div>
 					<div class="flex items-center justify-center">
 						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
-<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
-<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
-<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
-<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+					</div>
+				</div>
+
+				<div class="swiper-slide bg-white py-[3.7rem]
+				 px-[4.4rem]
+				 drop-shadow-primary
+				 rounded-primary
+				 grid
+				 gap-y-[4.5rem]
+				 gap-x-[1rem]
+				 grid-cols-2
+				">
+					<p class="px-3 col-start-1 col-span-2">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet sed pulvinar varius varius tempor
+						ultrices dolor. Egestas tincidunt in aliquam ipsum egestas sed placerat. Donec arcu vitae
+						placerat iaculis nulla. Amet pellentesque ultrices id suscipit lacinia mattis nunc. Sed ultrices
+						risus sapien.
+					</p>
+					<div class="flex flex-col gap-1 items-start">
+						<h4 class="text-[1.8rem] font-fontBold">
+							John Wick
+						</h4>
+						<span>Co founder of Jhon</span>
+					</div>
+					<div class="flex items-center justify-center">
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+					</div>
+				</div>
+
+				<div class="swiper-slide bg-white py-[3.7rem]
+				 px-[4.4rem]
+				 drop-shadow-primary
+				 rounded-primary
+				 grid
+				 gap-y-[4.5rem]
+				 gap-x-[1rem]
+				 grid-cols-2
+				">
+					<p class="px-3 col-start-1 col-span-2">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet sed pulvinar varius varius tempor
+						ultrices dolor. Egestas tincidunt in aliquam ipsum egestas sed placerat. Donec arcu vitae
+						placerat iaculis nulla. Amet pellentesque ultrices id suscipit lacinia mattis nunc. Sed ultrices
+						risus sapien.
+					</p>
+					<div class="flex flex-col gap-1 items-start">
+						<h4 class="text-[1.8rem] font-fontBold">
+							John Wick
+						</h4>
+						<span>Co founder of Jhon</span>
+					</div>
+					<div class="flex items-center justify-center">
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+					</div>
+				</div>
+
+				<div class="swiper-slide bg-white py-[3.7rem]
+				 px-[4.4rem]
+				 drop-shadow-primary
+				 rounded-primary
+				 grid
+				 gap-y-[4.5rem]
+				 gap-x-[1rem]
+				 grid-cols-2
+				">
+					<p class="px-3 col-start-1 col-span-2">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet sed pulvinar varius varius tempor
+						ultrices dolor. Egestas tincidunt in aliquam ipsum egestas sed placerat. Donec arcu vitae
+						placerat iaculis nulla. Amet pellentesque ultrices id suscipit lacinia mattis nunc. Sed ultrices
+						risus sapien.
+					</p>
+					<div class="flex flex-col gap-1 items-start">
+						<h4 class="text-[1.8rem] font-fontBold">
+							John Wick
+						</h4>
+						<span>Co founder of Jhon</span>
+					</div>
+					<div class="flex items-center justify-center">
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+					</div>
+				</div>
+
+				<div class="swiper-slide bg-white py-[3.7rem]
+				 px-[4.4rem]
+				 drop-shadow-primary
+				 rounded-primary
+				 grid
+				 gap-y-[4.5rem]
+				 gap-x-[1rem]
+				 grid-cols-2
+				">
+					<p class="px-3 col-start-1 col-span-2">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet sed pulvinar varius varius tempor
+						ultrices dolor. Egestas tincidunt in aliquam ipsum egestas sed placerat. Donec arcu vitae
+						placerat iaculis nulla. Amet pellentesque ultrices id suscipit lacinia mattis nunc. Sed ultrices
+						risus sapien.
+					</p>
+					<div class="flex flex-col gap-1 items-start">
+						<h4 class="text-[1.8rem] font-fontBold">
+							John Wick
+						</h4>
+						<span>Co founder of Jhon</span>
+					</div>
+					<div class="flex items-center justify-center">
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+					</div>
+				</div>
+
+				<div class="swiper-slide bg-white py-[3.7rem]
+				 px-[4.4rem]
+				 drop-shadow-primary
+				 rounded-primary
+				 grid
+				 gap-y-[4.5rem]
+				 gap-x-[1rem]
+				 grid-cols-2
+				">
+					<p class="px-3 col-start-1 col-span-2">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet sed pulvinar varius varius tempor
+						ultrices dolor. Egestas tincidunt in aliquam ipsum egestas sed placerat. Donec arcu vitae
+						placerat iaculis nulla. Amet pellentesque ultrices id suscipit lacinia mattis nunc. Sed ultrices
+						risus sapien.
+					</p>
+					<div class="flex flex-col gap-1 items-start">
+						<h4 class="text-[1.8rem] font-fontBold">
+							John Wick
+						</h4>
+						<span>Co founder of Jhon</span>
+					</div>
+					<div class="flex items-center justify-center">
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
+						<?php getSVG('assets/images/icons/icon-star-yellow.svg'); ?>
 					</div>
 				</div>
 			</div>

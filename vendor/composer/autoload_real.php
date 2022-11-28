@@ -24,13 +24,9 @@ class ComposerAutoloaderInit91000ae21a48029174d5fd7f62c1a3b3
 
         require __DIR__ . '/platform_check.php';
 
-        spl_autoload_register(
-            ['ComposerAutoloaderInit91000ae21a48029174d5fd7f62c1a3b3', 'loadClassLoader'],
-            true,
-            true
-        );
+        spl_autoload_register(array('ComposerAutoloaderInit91000ae21a48029174d5fd7f62c1a3b3', 'loadClassLoader'), true, true);
         self::$loader = $loader = new \Composer\Autoload\ClassLoader(\dirname(__DIR__));
-        spl_autoload_unregister(['ComposerAutoloaderInit91000ae21a48029174d5fd7f62c1a3b3', 'loadClassLoader']);
+        spl_autoload_unregister(array('ComposerAutoloaderInit91000ae21a48029174d5fd7f62c1a3b3', 'loadClassLoader'));
 
         require __DIR__ . '/autoload_static.php';
         call_user_func(\Composer\Autoload\ComposerStaticInit91000ae21a48029174d5fd7f62c1a3b3::getInitializer($loader));

@@ -83,6 +83,13 @@ trait EnqueueFiles {
             MY_ICLINIC_VERSION,
             true
         );
+        wp_enqueue_script(
+            'react-chatbot',
+            MY_ICLINIC_PATH_URL . 'react-components/chat-bot/build/index.js',
+            [],
+            MY_ICLINIC_VERSION,
+            true
+        );
     }
 
     /**
@@ -122,6 +129,14 @@ trait EnqueueFiles {
             wp_enqueue_style(
                 'iclinic-react-date-time',
                 MY_ICLINIC_PATH_URL . 'react-components/date-time/build/styles/main.min.css',
+                [],
+                MY_ICLINIC_VERSION,
+                'all'
+            );
+            // Include the react components styles
+            wp_enqueue_style(
+                'react-chatbot',
+                MY_ICLINIC_PATH_URL . 'react-components/chat-bot/build/styles/main.min.css',
                 [],
                 MY_ICLINIC_VERSION,
                 'all'

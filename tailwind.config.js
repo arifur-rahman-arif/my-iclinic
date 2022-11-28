@@ -23,9 +23,10 @@ module.exports = {
             },
             colors: {
                 primary: '#384043',
-                brand: '#33d9ff'
+                brand: '#33d9ff',
+                skyblue: '#edfafd'
             },
-            backgroundColor: {}
+            backgroundColor: {},
         }
     },
     plugins: []

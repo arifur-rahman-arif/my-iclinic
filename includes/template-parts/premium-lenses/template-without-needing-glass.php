@@ -1,6 +1,6 @@
 <!-- #format-tailwind -->
 
-<section class="section overflow-x-hidden sm:overflow-x-visible md:px-8 xl:!mt-[25rem]">
+<section class="section overflow-x-hidden sm:overflow-x-visible md:px-8">
     <div
         class="section__container grid-flow flex flex-col-reverse overflow-hidden !px-0 md:grid md:grid-cols-2 md:rounded-[var(--border-radius)] md:bg-[#E5FAFF] xl:grid-cols-[1.5fr_1fr]"
     >

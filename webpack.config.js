@@ -2,13 +2,15 @@ const path = require('path');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const glob = require('glob-all');
-const PurgecssPlugin = require('purgecss-webpack-plugin');
+require('dotenv').config()
+// const PurgecssPlugin = require('purgecss-webpack-plugin');
 
-const PATHS = {
-    scripts: path.join(__dirname, 'src/scripts'),
-    reactScripts: path.join(__dirname, 'lib'),
-    php: __dirname
-};
+
+// const PATHS = {
+//     scripts: path.join(__dirname, 'src/scripts'),
+//     reactScripts: path.join(__dirname, 'lib'),
+//     php: __dirname
+// };
 
 /**
  * Webpack configuration function
@@ -60,9 +62,9 @@ const config = (env, options) => {
                     injectChanges: true,
                     watch: true,
                     reloadOnRestart: true,
-                    files: ['./**/*.html', './**/*.php', './**/*.scss', './**/*.css'],
+                    files: ['./**/*.html', './**/*.php', './**/*.scss', './**/*.css', , './**/*.ts', './**/*.tsx'],
                     watchEvents: ['change', 'add', 'unlink', 'addDir', 'unlinkDir'],
-                    proxy: 'http://myiclinic.local'
+                    proxy: process.env.PROXY_URL
                 })
             ];
         }

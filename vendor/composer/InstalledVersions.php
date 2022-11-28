@@ -41,7 +41,7 @@ class InstalledVersions
      * @var array[]
      * @psalm-var array<string, array{root: array{name: string, pretty_version: string, version: string, reference: string|null, type: string, install_path: string, aliases: string[], dev: bool}, versions: array<string, array{pretty_version?: string, version?: string, reference?: string|null, type?: string, install_path?: string, aliases?: string[], dev_requirement: bool, replaced?: string[], provided?: string[]}>}>
      */
-    private static $installedByVendor = [];
+    private static $installedByVendor = array();
 
     /**
      * Returns a list of all package names which are present, either by being installed, replaced or provided
@@ -51,7 +51,7 @@ class InstalledVersions
      */
     public static function getInstalledPackages()
     {
-        $packages = [];
+        $packages = array();
         foreach (self::getInstalled() as $installed) {
             $packages[] = array_keys($installed['versions']);
         }
@@ -72,7 +72,7 @@ class InstalledVersions
      */
     public static function getInstalledPackagesByType($type)
     {
-        $packagesByType = [];
+        $packagesByType = array();
 
         foreach (self::getInstalled() as $installed) {
             foreach ($installed['versions'] as $name => $package) {
@@ -141,7 +141,7 @@ class InstalledVersions
                 continue;
             }
 
-            $ranges = [];
+            $ranges = array();
             if (isset($installed['versions'][$packageName]['pretty_version'])) {
                 $ranges[] = $installed['versions'][$packageName]['pretty_version'];
             }
@@ -235,9 +235,7 @@ class InstalledVersions
                 continue;
             }
 
-            return isset($installed['versions'][$packageName]['install_path'])
-                ? $installed['versions'][$packageName]['install_path']
-                : null;
+            return isset($installed['versions'][$packageName]['install_path']) ? $installed['versions'][$packageName]['install_path'] : null;
         }
 
         throw new \OutOfBoundsException('Package "' . $packageName . '" is not installed');
@@ -263,10 +261,7 @@ class InstalledVersions
      */
     public static function getRawData()
     {
-        @trigger_error(
-            'getRawData only returns the first dataset loaded, which may not be what you expect. Use getAllRawData() instead which returns all datasets for all autoloaders present in the process.',
-            E_USER_DEPRECATED
-        );
+        @trigger_error('getRawData only returns the first dataset loaded, which may not be what you expect. Use getAllRawData() instead which returns all datasets for all autoloaders present in the process.', E_USER_DEPRECATED);
 
         if (null === self::$installed) {
             // only require the installed.php file if this file is loaded from its dumped location,
@@ -274,7 +269,7 @@ class InstalledVersions
             if (substr(__DIR__, -8, 1) !== 'C') {
                 self::$installed = include __DIR__ . '/installed.php';
             } else {
-                self::$installed = [];
+                self::$installed = array();
             }
         }
 
@@ -313,7 +308,7 @@ class InstalledVersions
     public static function reload($data)
     {
         self::$installed = $data;
-        self::$installedByVendor = [];
+        self::$installedByVendor = array();
     }
 
     /**
@@ -326,19 +321,15 @@ class InstalledVersions
             self::$canGetVendors = method_exists('Composer\Autoload\ClassLoader', 'getRegisteredLoaders');
         }
 
-        $installed = [];
+        $installed = array();
 
         if (self::$canGetVendors) {
             foreach (ClassLoader::getRegisteredLoaders() as $vendorDir => $loader) {
                 if (isset(self::$installedByVendor[$vendorDir])) {
                     $installed[] = self::$installedByVendor[$vendorDir];
-                } elseif (is_file($vendorDir . '/composer/installed.php')) {
-                    $installed[] = self::$installedByVendor[$vendorDir] = require $vendorDir .
-                        '/composer/installed.php';
-                    if (
-                        null === self::$installed &&
-                        strtr($vendorDir . '/composer', '\\', '/') === strtr(__DIR__, '\\', '/')
-                    ) {
+                } elseif (is_file($vendorDir.'/composer/installed.php')) {
+                    $installed[] = self::$installedByVendor[$vendorDir] = require $vendorDir.'/composer/installed.php';
+                    if (null === self::$installed && strtr($vendorDir.'/composer', '\\', '/') === strtr(__DIR__, '\\', '/')) {
                         self::$installed = $installed[count($installed) - 1];
                     }
                 }
@@ -351,7 +342,7 @@ class InstalledVersions
             if (substr(__DIR__, -8, 1) !== 'C') {
                 self::$installed = require __DIR__ . '/installed.php';
             } else {
-                self::$installed = [];
+                self::$installed = array();
             }
         }
         $installed[] = self::$installed;

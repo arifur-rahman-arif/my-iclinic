@@ -235,8 +235,8 @@
 
 		<div class="mission">
 			<div class="mission__banner desktop-view">
-				<img class="mission__image"
-					src="<?php echo MY_ICLINIC_PATH_URL . 'assets/images/feature/doctor-councelling.png'; ?>" />
+				<img class="mission__image min-h-[77.5rem] rounded-primary"
+					src="<?php echo MY_ICLINIC_PATH_URL . 'assets/images/feature/doctor-councelling.jpeg'; ?>" />
 
 				<div class="card-wrapper">
 					<div class="card card--mission-card">
@@ -309,7 +309,7 @@
 
 							<div class="form__input-wrapper">
 								<label class="form__label" for="name">Extra information
-									<span class="input-required">(Optional)</span>
+									<span>(Optional)</span>
 								</label>
 								<textarea class="form__input" type="text" name="extra-information"
 									id="extra-information" rows="10"></textarea>
@@ -378,31 +378,11 @@
 </section>
 
 <section class="section">
-	<div class="section__container">
-		<div class="feature feature--save-planet feature--bg">
-			<?php getSVG('assets/images/feature/eye-ball.svg', 'eye-ball'); ?>
-
-			<div class="eco-image">
-				<img src="<?php echo MY_ICLINIC_PATH_URL . 'assets/images/feature/eco-tree.png'; ?>" />
-			</div>
-
-			<div>
-				<h3 class="section__title section__title--light section__title--yellow-pseudo-border-left-desktop">
-					Saving the planet by<br />
-					<strong>
-						being sustainable
-					</strong>
-				</h3>
-
-				<div class="section__description">
-					<p>
-						We give every patient an Eco Tree as a big thank you for being
-						sustainable with your eye-style! Helping the planet by being free from
-						Glasses and contact lenses."
-					</p>
-				</div>
-			</div>
-		</div>
+	<div class="lottie">
+		<lottie-player id="lottie-green-living"
+			src="<?php echo MY_ICLINIC_PATH_URL . 'assets/images/lottie/saving-planet.lottie.json'; ?>"
+			background="transparent" speed="1">
+		</lottie-player>
 	</div>
 </section>
 
